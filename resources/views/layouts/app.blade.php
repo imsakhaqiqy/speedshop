@@ -8,6 +8,8 @@
     {!! Html::style('back/font-awesome/css/font-awesome.css') !!}
     {!! Html::style('back/css/animate.css') !!}
     {!! Html::style('back/css/style.css') !!}
+    <!-- jquery datatables-->
+    {!! Html::style('back/css/plugins/dataTables/datatables.min.css') !!}
 </head>
 <body>
     <div id="wrapper">
@@ -16,7 +18,18 @@
     <div id="page-wrapper" class="gray-bg">
       <!-- START MAIN HEADER -->
       @include('layouts.partials.main_header')
+      <div class="row wrapper border-bottom white-bg page-heading">
+          <div class="col-lg-10">
+              @yield('page_header')
+              @yield('breadcrumb')
+          </div>
+          <div class="col-lg-2">
+
+          </div>
+      </div>
       <div class="wrapper wrapper-content">
+
+
         <!--Flash Session message-->
             <div class="row">
               <div class="col-md-12">
@@ -83,6 +96,8 @@
     <!-- Sparkline demo data  -->
     {!! Html::script('back/js/demo/sparkline-demo.js') !!}
 
+    <!-- DataTables -->
+    {!! Html::script('back/js/plugins/dataTables/datatables.min.js') !!}
     <script>
         $(document).ready(function() {
             $('.chart').easyPieChart({
@@ -246,5 +261,6 @@
             });
         });
     </script>
+    @yield('additional_scripts')
 </body>
 </html>

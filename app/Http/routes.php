@@ -10,6 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('speedshop', 'FrontController');
+
+Route::resource('user', 'UserController');
+
+Route::resource('role', 'RoleController');
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +23,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::controller('datatables', 'DatatablesController',[
+  'getRoles'=>'datatables.getRoles',
+  'getUsers'=>'datatables.getUsers',
+]);

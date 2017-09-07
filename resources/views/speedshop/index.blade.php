@@ -13,24 +13,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Nuevo Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="applijegleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+{!! Html::style('front/css/bootstrap.css') !!}
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<script src="js/jquery-1.11.1.min.js"></script>
+{!! Html::style('front/css/style.css') !!}
+{!! Html::script('front/js/jquery-1.11.1.min.js') !!}
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+{!! Html::style('front/css/megamenu.css') !!}
+{!! Html::script('front/js/megamenu.js') !!}
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
+{!! Html::script('front/js/menu_jquery.js') !!}
+{!! Html::script('front/js/simpleCart.min.js') !!}
 <!--web-fonts-->
  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,700' rel='stylesheet' type='text/css'>
  <link href='//fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css'>
 <!--//web-fonts-->
- <script src="js/scripts.js" type="text/javascript"></script>
-<script src="js/modernizr.custom.js"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+{!! Html::script('front/js/scripts.js') !!}
+{!! Html::script('front/js/modernizr.custom.js') !!}
+{!! Html::script('front/js/move-top.js') !!}
+{!! Html::script('front/js/easing.js') !!}
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -74,11 +74,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--start-home-->
-<ul id="overflow">
+<!-- <ul id="overflow">
   <li id="facebook"><a href="#">Facebook</a></li>
   <li id="twitter"><a href="#">Twitter</a></li>
   <li id="google"><a href="#">Google</a></li>
-</ul>
+</ul> -->
 <div class="top_bg" id="home">
 	<div class="container">
 		<div class="header_top">
@@ -769,7 +769,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   <div class="banner-grids">
 				       <div class="col-md-6 jocket">
 						   <div class="jock-img">
-						     <img src="images/sht.jpg" alt="">
+                 {!! Html::image('front/images/sht.jpg') !!}
 						   </div>
 						    <div class="jock-text">
 						      <h3 class="b-tittle">Men's Jacket</h3>
@@ -779,7 +779,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   </div>
 					   <div class="col-md-6 shoe">
 							   <div class="shoe-img">
-								 <img src="images/shoe.jpg" class="img-responsive" alt="">
+                   {!! Html::image('front/images/shoe.jpg', '', ['class'=>'img-responsive']) !!}
 							   </div>
 								<div class="shoe-text">
 								   <h3 class="b-tittle">Men's Shoes</h3>
@@ -793,7 +793,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
 								   </div>
 								   <div class="bag-img">
-									 <img src="images/bag.jpg" class="img-responsive" alt="">
+                     {!! Html::image('front/images/bag.jpg', '', ['class'=>'img-responsive']) !!}
 								   </div>
 								   <div class="clearfix"> </div>
 
@@ -804,7 +804,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
 								   </div>
 								   <div class="glass-img">
-									 <img src="images/glass.jpg" class="img-responsive" alt="">
+                     {!! Html::image('front/images/glass.jpg', '', ['class'=>'img-responsive']) !!}
 								   </div>
 								   <div class="clearfix"> </div>
 
@@ -824,7 +824,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   <div class="fashion-info">
 				<div class="col-md-4 fashion-grids">
 					<figure class="effect-bubba">
-						<img src="images/f1.jpg" alt=""/>
+            {!! Html::image('front/images/f1.jpg', '', ['class'=>'']) !!}
 						<figcaption>
 							<h4>Nuevo Shop</h4>
 							<p class="cart"><a href="single.html">Shop</a></p>
@@ -833,7 +833,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 fashion-grids">
 					<figure class="effect-bubba">
-						<img src="images/f2.jpg" alt=""/>
+            {!! Html::image('front/images/f2.jpg', '', ['class'=>'']) !!}
 						<figcaption>
 							<h4>Nuevo Shop</h4>
 								<p class="cart"><a href="single.html">Shop</a></p>
@@ -842,7 +842,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 fashion-grids">
 					<figure class="effect-bubba">
-						<img src="images/f3.jpg" alt=""/>
+            {!! Html::image('front/images/f3.jpg', '', ['class'=>'']) !!}
 						<figcaption>
 							<h4>Nuevo Shop</h4>
 							<p class="cart"><a href="single.html">Shop</a></p>
@@ -862,7 +862,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   <div class="fashion-info">
 				<div class="col-md-4 fashion-grids">
 					<figure class="effect-bubba">
-						<img src="images/f4.jpg" alt=""/>
+            {!! Html::image('front/images/f4.jpg', '', ['class'=>'']) !!}
 						<figcaption>
 							<h4>Nuevo Shop</h4>
 							<p class="cart"><a href="single.html">Shop</a></p>
@@ -871,7 +871,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 fashion-grids">
 					<figure class="effect-bubba">
-						<img src="images/f5.jpg" alt=""/>
+            {!! Html::image('front/images/f5.jpg', '', ['class'=>'']) !!}
 						<figcaption>
 							<h4>Nuevo Shop</h4>
 								<p class="cart"><a href="single.html">Shop</a></p>
@@ -880,7 +880,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 fashion-grids">
 					<figure class="effect-bubba">
-						<img src="images/f6.jpg" alt=""/>
+            {!! Html::image('front/images/f6.jpg', '', ['class'=>'']) !!}
 						<figcaption>
 							<h4>Nuevo Shop</h4>
 							<p class="cart"><a href="single.html">Shop</a></p>
@@ -912,7 +912,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="standard active" data-selector="1">
 							<div class="tag-grid">
 								<div class="tag-wrapper">
-									<a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
+									<a href="single.html">
+                    {!! Html::image('front/images/s2.jpg', '', ['class'=>'img-responsive']) !!}
+                  </a>
 									<div class="r-title">
 										<h3>Sunny Dress</h3>
 										<h4>$30</h4>
@@ -922,7 +924,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					       </div>
 						<div class="tag-grid">
 								<div class="tag-wrapper">
-									<a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
+									<a href="single.html">
+                    {!! Html::image('front/images/s1.jpg', '', ['class'=>'img-responsive']) !!}
+                  </a>
 									<div class="atc"><a href="single.html">Shop</a></div>
 									<div class="r-title">
 										<h3>White Shirt</h3>
@@ -932,7 +936,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					    </div>
 						<div class="tag-grid">
 								<div class="tag-wrapper">
-									<a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
+									<a href="single.html">
+                    {!! Html::image('front/images/s3.jpg', '', ['class'=>'img-responsive']) !!}
+                  </a>
 									<div class="atc"><a href="single.html">Shop</a></div>
 									<div class="r-title">
 										<h3>Puma Shoe</h3>
