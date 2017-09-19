@@ -10,6 +10,7 @@ use Yajra\Datatables\Datatables;
 
 use App\Role;
 use App\User;
+use App\Menu;
 
 class DatatablesController extends Controller
 {
@@ -56,6 +57,34 @@ class DatatablesController extends Controller
           $actions_html .=    '<i class="fa fa-edit"></i>';
           $actions_html .='</a>&nbsp;';
           $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-role" data-id="'.$users->id.'" data-text="'.$users->name.'">';
+          $actions_html .=    '<i class="fa fa-trash"></i>';
+          $actions_html .='</button>';
+          return $actions_html;
+        });
+        if($keyword = $request->get('search')['value']){
+          $datatables->filterColumn('rownum', 'whereRaw', '@rownum + 1 like ?', ["%{$keyword}%"]);
+        }
+        return $datatables->make(true);
+    }
+
+    public function getMenus(Request $request){
+      \DB::statement(\DB::raw('set @rownum=0'));
+      $menus = Menu::select([
+        \DB::raw('@rownum := @rownum + 1 AS rownum'),
+          'id',
+          'modules',
+          'link_modules',
+          'urutan',
+          'parent',
+          'icon',
+          'description',
+      ]);
+      $datatables = Datatables::of($menus)
+        ->addColumn('actions', function($menus){
+          $actions_html ='<a href="'.url('menu/'.$menus->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this menu">';
+          $actions_html .=    '<i class="fa fa-edit"></i>';
+          $actions_html .='</a>&nbsp;';
+          $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-role" data-id="'.$menus->id.'" data-text="'.$menus->menu.'">';
           $actions_html .=    '<i class="fa fa-trash"></i>';
           $actions_html .='</button>';
           return $actions_html;

@@ -28,6 +28,7 @@
                 <ul class="nav nav-second-level collapse">
                     <li><a href="{{ url('user') }}"><i class="fa fa-users"></i>User Management</a></li>
                     <li><a href="{{ url('role') }}"><i class="fa fa-users"></i>Role</a></li>
+                    <li><a href="{{ url('menu') }}"><i class="fa fa-users"></i>Menu</a></li>
                 </ul>
             </li>
             <li class="landing_link">

@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('menu', 'MenuController');
+
 Route::resource('speedshop', 'FrontController');
 
 Route::resource('user', 'UserController');
@@ -27,4 +29,5 @@ Route::get('/home', 'HomeController@index');
 Route::controller('datatables', 'DatatablesController',[
   'getRoles'=>'datatables.getRoles',
   'getUsers'=>'datatables.getUsers',
+  'getMenus'=>'datatables.getMenus',
 ]);

@@ -87,6 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#">help</a></li>
 					<li><a href="contact.html">Contact</a></li>
 					<li><a href="#">Delivery information</a></li>
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Register</a></li>
 				</ul>
 			</div>
 			<div class="top_left">
@@ -1171,7 +1173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <!--/start-copyright-->
 	 <div class="copy">
 		<div class="container">
-			<p>&copy; 2015 Nuevo Shop. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+			<p>&copy; 2017 Speed Shop. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
 		</div>
 	</div>
 	 <!--//end-copyright-->
