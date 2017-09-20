@@ -24,6 +24,15 @@
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
             </li>
             <li>
+                <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Master Data</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{{ url('family') }}"><i class="fa fa-users"></i>Family</a></li>
+                    <li><a href="{{ url('category') }}"><i class="fa fa-users"></i>Catagory</a></li>
+                    <li><a href="{{ url('unit') }}"><i class="fa fa-users"></i>Unit</a></li>
+                    <li><a href="{{ url('product') }}"><i class="fa fa-users"></i>Product</a></li>
+                </ul>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="{{ url('user') }}"><i class="fa fa-users"></i>User Management</a></li>
@@ -34,6 +43,7 @@
             <li class="landing_link">
                 <a href="{{ url('speedshop') }}"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
             </li>
+            
         </ul>
 
     </div>
