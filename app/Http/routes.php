@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('unit', 'UnitController');
+
 Route::resource('menu', 'MenuController');
 
 Route::resource('speedshop', 'FrontController');
