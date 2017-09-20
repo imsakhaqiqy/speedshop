@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class UnitController extends Controller
+class FamilyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return view('unit.index');
-        
+        return view('family.index');
     }
 
     /**
