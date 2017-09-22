@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Family;
+
 class FamilyController extends Controller
 {
     /**
@@ -25,7 +27,7 @@ class FamilyController extends Controller
      */
     public function create()
     {
-        //
+        return view('family.create');
     }
 
     /**
@@ -36,7 +38,13 @@ class FamilyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $families = New Family;
+        $families->name = $request->name;
+        $families->creator = \Auth::user()->id;
+        $families->deleted = 0;
+        $families->save();
+        return redirect('family')
+          ->with('successMessage', 'family has been added');
     }
 
     /**
@@ -58,7 +66,9 @@ class FamilyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $family = Family::findOrFail($id);
+        return view('family.edit')
+          ->with('family', $family);
     }
 
     /**
@@ -70,7 +80,13 @@ class FamilyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $families = Family::findOrFail($id);
+        $families->name = $request->name;
+        $families->creator = \Auth::user()->id;
+        $families->deleted = 0;
+        $families->save();
+        return redirect('family/'.$id.'/edit')
+          ->with('successMessage', 'Family has been updated');
     }
 
     /**
