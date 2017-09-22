@@ -15,6 +15,7 @@ Route::resource('product', 'ProductController');
 Route::resource('family', 'FamilyController');
 
 Route::resource('unit', 'UnitController');
+Route::post('deleteUnit','UnitController@destroy');
 
 Route::resource('menu', 'MenuController');
 
@@ -36,6 +37,7 @@ Route::controller('datatables', 'DatatablesController',[
   'getRoles'=>'datatables.getRoles',
   'getUsers'=>'datatables.getUsers',
   'getMenus'=>'datatables.getMenus',
-  'getFamilies'=>'datatables.getFamilies',
-  'getProducts'=>'datatables.getProducts'
+  'getProducts'=>'datatables.getProducts',
+  'getUnits'=>'datatables.getUnits',
+  'getFamilies'=>'datatables.getFamilies'
 ]);

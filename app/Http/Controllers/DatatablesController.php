@@ -11,6 +11,7 @@ use Yajra\Datatables\Datatables;
 use App\Role;
 use App\User;
 use App\Menu;
+use App\Units;
 use App\Family;
 use App\Product;
 
@@ -97,6 +98,35 @@ class DatatablesController extends Controller
         return $datatables->make(true);
     }
 
+    public function getUnits(Request $request){
+      \DB::statement(\DB::raw('set @rownum=0'));
+      $units = Units::with('users')->select([
+        \DB::raw('@rownum := @rownum + 1 AS rownum'),
+          'units.*',
+      ])->where(['deleted'=>'0']);
+      $datatables = Datatables::of($units)
+        ->editColumn('creator',function($units){
+          if(empty($units->users->name)){
+            return 'null';
+          }else{
+            return $units->users->name;
+          }
+        })
+        ->addColumn('actions', function($units){
+          $actions_html ='<a href="'.url('unit/'.$units->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this units">';
+          $actions_html .=    '<i class="fa fa-edit"></i>';
+          $actions_html .='</a>&nbsp;';
+          $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-unit" data-id="'.$units->id.'" data-text="'.$units->name.'">';
+          $actions_html .=    '<i class="fa fa-trash"></i>';
+          $actions_html .='</button>';
+          return $actions_html;
+        });
+        if($keyword = $request->get('search')['value']){
+          $datatables->filterColumn('rownum', 'whereRaw', '@rownum + 1 like ?', ["%{$keyword}%"]);
+        }
+        return $datatables->make(true);
+    }
+
     public function getFamilies(Request $request){
       \DB::statement(\DB::raw('set @rownum=0'));
       $families = Family::with('user')->select([
@@ -124,7 +154,7 @@ class DatatablesController extends Controller
 
     public function getProducts(Request $request){
       \DB::statement(\DB::raw('set @rownum=0'));
-      $product = Product::with(['family','category','unit'])->select([
+      $product = Product::with(['family','category','unit','user'])->select([
         \DB::raw('@rownum := @rownum + 1 AS rownum'),
         'products.*'
       ]);
@@ -137,6 +167,9 @@ class DatatablesController extends Controller
       })
       ->editColumn('unit', function($product){
         return strtoupper($product->unit->name);
+      })
+      ->editColumn('creator', function($product){
+        return strtoupper($product->user->name);
       })
       ->addColumn('actions', function($product){
         $actions_html ='<a href="'.url('family/'.$product->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this family">';
