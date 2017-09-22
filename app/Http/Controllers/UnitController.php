@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Units;
 
 class UnitController extends Controller
 {
@@ -16,6 +17,7 @@ class UnitController extends Controller
     public function index()
     {
         return view('unit.index');
+
         
     }
 
@@ -26,7 +28,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('unit.create');
     }
 
     /**
@@ -37,7 +39,12 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $units = New Units;
+        $units->name = $request->name;
+        $units->creator = \Auth::user()->id;
+        $units->save();
+        return redirect('unit')
+            ->with('successMessage', 'Unit has been added');
     }
 
     /**
@@ -59,7 +66,9 @@ class UnitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $units = Units::findORFail($id);
+        return view('unit.edit')
+          ->with('unit',$units);
     }
 
     /**
@@ -71,7 +80,12 @@ class UnitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $units = Units::findORFail($id);
+        $units->name = $request->name;
+        $units->creator = \Auth::user()->id;
+        $units->save();
+        return redirect('unit')
+          ->with('successMessage', 'Unit has been updated');
     }
 
     /**
@@ -80,8 +94,12 @@ class UnitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $units = Units::findORFail($request->unit_id);
+        $units->deleted = 1;
+        $units->save();
+        return redirect('unit')
+         ->with('successMessage', 'Unit has been deleted');
     }
 }
