@@ -12,6 +12,7 @@ use App\Role;
 use App\User;
 use App\Menu;
 use App\Family;
+use App\Product;
 
 class DatatablesController extends Controller
 {
@@ -120,4 +121,36 @@ class DatatablesController extends Controller
       }
       return $datatables->make(true);
     }
+
+    public function getProducts(Request $request){
+      \DB::statement(\DB::raw('set @rownum=0'));
+      $product = Product::with(['family','category','unit'])->select([
+        \DB::raw('@rownum := @rownum + 1 AS rownum'),
+        'products.*'
+      ]);
+      $datatables = Datatables::of($product)
+      ->editColumn('family', function($product){
+        return strtoupper($product->family->name);
+      })
+      ->editColumn('category', function($product){
+        return strtoupper($product->category->name);
+      })
+      ->editColumn('unit', function($product){
+        return strtoupper($product->unit->name);
+      })
+      ->addColumn('actions', function($product){
+        $actions_html ='<a href="'.url('family/'.$product->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this family">';
+        $actions_html .=    '<i class="fa fa-edit"></i>';
+        $actions_html .='</a>&nbsp;';
+        $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-family" data-id="'.$product->id.'" data-text="'.$product->name.'">';
+        $actions_html .=    '<i class="fa fa-trash"></i>';
+        $actions_html .='</button>';
+        return $actions_html;
+      });
+      if($keyword = $request->get('search')['value']){
+          $datatables->filterColumn('rownum', 'whereRaw', '@rownum + 1 like ?', ["%{$keyword}%"]);
+      }
+      return $datatables->make(true);
+    }
+
 }
