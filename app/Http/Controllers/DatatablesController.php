@@ -11,7 +11,11 @@ use Yajra\Datatables\Datatables;
 use App\Role;
 use App\User;
 use App\Menu;
+<<<<<<< HEAD
 use App\Units;
+=======
+use App\Family;
+>>>>>>> 9f8169ae67eb8b043bcc7597d45d07b3796d9fab
 
 class DatatablesController extends Controller
 {
@@ -96,6 +100,7 @@ class DatatablesController extends Controller
         return $datatables->make(true);
     }
 
+<<<<<<< HEAD
 
     public function getUnits(Request $request){
       \DB::statement(\DB::raw('set @rownum=0'));
@@ -126,4 +131,30 @@ class DatatablesController extends Controller
         return $datatables->make(true);
     }
 
+=======
+    public function getFamilies(Request $request){
+      \DB::statement(\DB::raw('set @rownum=0'));
+      $families = Family::with('user')->select([
+        \DB::raw('@rownum := @rownum + 1 AS rownum'),
+        'families.*'
+      ]);
+      $datatables = Datatables::of($families)
+      ->editColumn('creator', function($families){
+        return strtoupper($families->user->name);
+      })
+      ->addColumn('actions', function($families){
+        $actions_html ='<a href="'.url('family/'.$families->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this family">';
+        $actions_html .=    '<i class="fa fa-edit"></i>';
+        $actions_html .='</a>&nbsp;';
+        $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-family" data-id="'.$families->id.'" data-text="'.$families->name.'">';
+        $actions_html .=    '<i class="fa fa-trash"></i>';
+        $actions_html .='</button>';
+        return $actions_html;
+      });
+      if($keyword = $request->get('search')['value']){
+          $datatables->filterColumn('rownum', 'whereRaw', '@rownum + 1 like ?', ["%{$keyword}%"]);
+      }
+      return $datatables->make(true);
+    }
+>>>>>>> 9f8169ae67eb8b043bcc7597d45d07b3796d9fab
 }

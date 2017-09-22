@@ -35,5 +35,9 @@ Route::controller('datatables', 'DatatablesController',[
   'getRoles'=>'datatables.getRoles',
   'getUsers'=>'datatables.getUsers',
   'getMenus'=>'datatables.getMenus',
+<<<<<<< HEAD
   'getUnits'=>'datatables.getUnits',
+=======
+  'getFamilies'=>'datatables.getFamilies'
+>>>>>>> 9f8169ae67eb8b043bcc7597d45d07b3796d9fab
 ]);
