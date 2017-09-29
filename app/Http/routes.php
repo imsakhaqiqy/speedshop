@@ -25,6 +25,8 @@ Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
 
+Route::resource('daftar', 'SDaftarController');
+
 Route::resource('speedshop', 'SHomeController');
 
 Route::get('/', function () {
