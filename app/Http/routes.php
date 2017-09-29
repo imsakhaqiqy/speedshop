@@ -19,11 +19,13 @@ Route::post('deleteUnit','UnitController@destroy');
 
 Route::resource('menu', 'MenuController');
 
-Route::resource('speedshop', 'FrontController');
+//Route::resource('speedshop', 'FrontController');
 
 Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
+
+Route::resource('speedshop', 'SHomeController');
 
 Route::get('/', function () {
     return view('welcome');
