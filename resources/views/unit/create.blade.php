@@ -54,7 +54,7 @@ create.blade.php
             <div class="hr-line-dashed"></div>
             <div class="form-group">
               <div class="col-sm-4 col-sm-offset-2">
-                <a href="{{ url('user') }}" class="btn btn-white">
+                <a href="{{ url('unit') }}" class="btn btn-white">
                   <i class="fa fa-repeat"></i>&nbsp;Cancel
                 </a>
                 <button class="btn btn-primary" type="submit">
