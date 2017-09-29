@@ -29,8 +29,9 @@ return [
     |
     */
 
-    'lifetime' => 120,
-
+    //default lifetime
+    //'lifetime' => 120,
+    'lifetime' => 1 * (60 * 24 * 365),
     'expire_on_close' => false,
 
     /*
