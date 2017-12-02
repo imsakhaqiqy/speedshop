@@ -14,7 +14,7 @@
 					<li><a href="contact.html">Contact</a></li>
 					<li><a href="#">Delivery information</a></li>
           <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Register</a></li>
+          <li><a href="{{ url('daftar')}}">Register</a></li>
 				</ul>
 			</div>
 			<div class="top_left">

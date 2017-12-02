@@ -72,7 +72,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   #google a{
     color: #fff;
   }
+
+
 </style>
+
+@yield('aditional_css')
+
 </head>
 <body>
   @include('speedshop.partials.main_header')
@@ -81,5 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- START FOOTER -->
   @include('speedshop.partials.footer')
 
+  @yield('additional_scripts')
+  
 </body>
 </html>
