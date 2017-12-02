@@ -7,27 +7,26 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Illuminate\Support\Facades\DB;
-use App\Family;
 use App\Category;
 
-class SHomeController extends Controller
+class SSingleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $hotlist = \DB::table('categories')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
+        $p = $request->p;
+        $category = \DB::table('categories')->where('name',$p)->get();
         // echo "<pre>";
-        // print_r($family);
+        // print_r($category);
         // echo "</pre>";
         // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist);
+        return view('single.index')
+          ->with('p',$p)
+          ->with('category',$category);
     }
 
     /**
@@ -37,7 +36,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -94,10 +93,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function single()
-    {
-      return view('family.create');
     }
 }

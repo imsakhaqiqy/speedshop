@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Http\Requests;
 
-use Illuminate\Support\Facades\DB;
-use App\Family;
-use App\Category;
+use App\User;
 
-class SHomeController extends Controller
+class S_LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +19,43 @@ class SHomeController extends Controller
      */
     public function index()
     {
-        $hotlist = \DB::table('categories')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
-        // echo "<pre>";
-        // print_r($family);
-        // echo "</pre>";
-        // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist);
+        return view('s_masuk.index');
+    }
+
+    public function berhasil(Request $request)
+    {
+      $email = $request->email;
+      $password = $request->password;
+      if(Auth::attempt(['email'=>$email, 'password'=>$password])){
+        return redirect('speedshop');
+      }
+      else{
+        return redirect('masuk')
+          ->with('errorMessage','maaf login gagal');
+      }
+      // exit;
+
+      // while ($customer) {
+      //     if($customer['email'] == 'morata@email.com'){
+      //       return redirect('speedshop');
+      //     }
+      //     else{
+      //       return redirect('masuk');
+      //     }
+      //
+      // }
+      //   if($email == $cus[0]){
+      //     return redirect('speedshop');
+      //   }
+      //   else{
+      //     return redirect('masuk');
+      //   }
+      // }
+      //
+      // exit;
+
+
+
     }
 
     /**
@@ -37,7 +65,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -94,10 +122,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function single()
-    {
-      return view('family.create');
     }
 }

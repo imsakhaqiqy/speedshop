@@ -9,16 +9,32 @@
 	<div class="container">
 		<div class="header_top">
 			<div class="top_right">
-				<ul>
-					<li><a href="#">help</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="#">Delivery information</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="{{ url('daftar')}}">Register</a></li>
-				</ul>
+				<div class="logo">
+	 			  <a href="index.html"><h1>Icon <span>SpeedShop</span></h1> </a>
+	 		  </div>
 			</div>
+			<div class="dropdown">
+	 		   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">kategori
+	 		   <span class="caret"></span></button>
+	 		   <ul class="dropdown-menu">
+	 		     <li><a href="#">HTML</a></li>
+	 		     <li><a href="#">CSS</a></li>
+	 		     <li><a href="#">JavaScript</a></li>
+	 		   </ul>
+ 		 </div>
 			<div class="top_left">
-				<h6><span></span> Call us : 032 2352 782</h6>
+				<ul>
+					<li><h6><a href="{{ url('daftar')}}">Register</a></h6></li>
+					<li><h6><span></span><a href="{{ url('masuk')}}">Login</a></h6></li>
+				</ul>
+				<div class="cart box_1">
+					<a href="checkout.html">
+					<div class="total">
+						<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+						<i class="glyphicon glyphicon-shopping-cart"></i></a>
+					<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+					<div class="clearfix"> </div>
+				</div>
 			</div>
 				<div class="clearfix"> </div>
 		</div>
@@ -29,18 +45,8 @@
    <div class="container">
 	<div class="header">
 	  <div class="head-t">
-		 <div class="logo">
-			  <a href="index.html"><h1>Nuevo <span>Shop</span></h1> </a>
-		  </div>
 		  <div class="header_right">
-			<div class="cart box_1">
-				<a href="checkout.html">
-				<div class="total">
-					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-					<i class="glyphicon glyphicon-shopping-cart"></i></a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-				<div class="clearfix"> </div>
-			</div>
+
 		</div>
 		<div class="clearfix"></div>
 	    </div>
@@ -687,31 +693,6 @@
     				</div>
 				</li>
 		 </ul>-->
-		 	<nav class="navbar navbar-inverse">
-				<div class="container-fluid">
-					<ul class="nav navbar-nav" style="width:20%">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 1-1</a></li>
-								<li><a href="#">Page 1-2</a></li>
-								<li><a href="#">Page 1-3</a></li>
-							</ul>
-						</li>
-					</ul>
-						<form class="navbar-form navbar-left" style="width:80%">
-							<div class="input-group">
-						    <input type="text" class="form-control" placeholder="Search">
-						    <div class="input-group-btn">
-						      <button class="btn btn-default" type="submit">
-						        <i class="glyphicon glyphicon-search"></i>
-						      </button>
-						    </div>
-						  </div>
-						</form>
-					</div>
-		</nav>
-	</div>
+</div>
 </div>
 </div>
