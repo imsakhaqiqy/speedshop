@@ -81,12 +81,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
   @include('speedshop.partials.main_header')
-
+  
   @yield('content')
   <!-- START FOOTER -->
   @include('speedshop.partials.footer')
 
   @yield('additional_scripts')
-  
+
 </body>
 </html>

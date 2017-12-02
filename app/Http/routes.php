@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('masuk', 'S_LoginController');
+Route::post('berhasil','S_LoginController@berhasil');
+
 Route::resource('product', 'ProductController');
 
 Route::resource('family', 'FamilyController');

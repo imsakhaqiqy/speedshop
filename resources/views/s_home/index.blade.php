@@ -8,42 +8,42 @@
           <div class="banner-grids">
               <div class="col-md-6 jocket">
               <div class="jock-img">
-                {!! Html::image('front/images/sht.jpg') !!}
+                {!! Html::image('front/images/4.jpg') !!}
               </div>
                <div class="jock-text">
-                 <h3 class="b-tittle">Men's Jacket</h3>
+                 <h3 class="b-tittle">Knalpot</h3>
               <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
               <div class="clearfix"> </div>
             </div>
             <div class="col-md-6 shoe">
                 <div class="shoe-img">
-                  {!! Html::image('front/images/shoe.jpg', '', ['class'=>'img-responsive']) !!}
+                  {!! Html::image('front/images/1.jpg', '', ['class'=>'img-responsive']) !!}
                 </div>
                <div class="shoe-text">
-                  <h3 class="b-tittle">Men's Shoes</h3>
+                  <h3 class="b-tittle">Shock</h3>
                 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
                 </div>
                 <div class="clearfix"> </div>
            <div class="bottom-bags">
                 <div class="col-md-6 pack">
                  <div class="bag-text">
-                    <h3 class="b-tittle">Bags</h3>
+                    <h3 class="b-tittle">xaxa</h3>
                   <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
                   </div>
                   <div class="bag-img">
-                    {!! Html::image('front/images/bag.jpg', '', ['class'=>'img-responsive']) !!}
+                    {!! Html::image('front/images/2.jpg', '', ['class'=>'img-responsive']) !!}
                   </div>
                   <div class="clearfix"> </div>
 
                 </div>
                 <div class="col-md-6 glass">
                  <div class="glass-text">
-                    <h3 class="b-tittle">Glasses</h3>
+                    <h3 class="b-tittle">xaxa</h3>
                 <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
                   </div>
                   <div class="glass-img">
-                    {!! Html::image('front/images/glass.jpg', '', ['class'=>'img-responsive']) !!}
+                    {!! Html::image('front/images/3.jpg', '', ['class'=>'img-responsive']) !!}
                   </div>
                   <div class="clearfix"> </div>
 
@@ -63,7 +63,7 @@
        <div class="fashion-info">
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/f1.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/5.jpg', '', ['class'=>'']) !!}
             <figcaption>
               <h4>Nuevo Shop</h4>
               <p class="cart"><a href="single.html">Shop</a></p>
