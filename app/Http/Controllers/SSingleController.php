@@ -60,11 +60,11 @@ class SSingleController extends Controller
         $chart->status = 0;
         $chart->deleted = 0;
         $chart->save();
-        echo "<pre>";
-        print_r($quantity);
-        echo "</pre>";
-        exit;
-        return redirect();
+        // echo "<pre>";
+        // print_r($quantity);
+        // echo "</pre>";
+        // exit;
+        return redirect('chart');
     }
 
     /**
