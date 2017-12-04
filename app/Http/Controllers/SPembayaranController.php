@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+use Auth;
+use App\User;
 use App\Http\Requests;
 
-use Auth;
-use App\DB;
-use App\Chart;
-use App\User;
-use App\Product;
-
-class SChartController extends Controller
+class SPembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +18,7 @@ class SChartController extends Controller
      */
     public function index()
     {
-        $id_customer = \DB::table('customers')->where('id_user',Auth::user()->id)->value('id');
-        $charts = \DB::table('charts')->select('*',\DB::raw('sum(quantity) as quantity'))->where('customer_id',$id_customer)->groupBy('product_id')->get();
-        // echo "<pre>";
-        // print_r($charts);
-        // echo "</pre>";
-        // exit;
-        return view('chart.index')
-          ->with('charts',$charts);
+          return view('s_pembayaran.index');
     }
 
     /**
@@ -49,27 +39,7 @@ class SChartController extends Controller
      */
     public function store(Request $request)
     {
-        $product_arr = [];
-        foreach ($request->product as $key => $value) {
-          $product_arr[$value] = [
-            'product_id' => $request->product[$key],
-            'quantity'   =>  $request->quantity[$key],
-          ];
-        }
-        // echo "<pre>";
-        // print_r($product_arr);
-        // echo "</pre>";
-        // exit;
-        $customer = \DB::table('customers')->where('id_user',Auth::user()->id)->get();
-        $customer_email = User::findOrFail($customer[0]->id_user);
-        // echo "<pre>";
-        // print_r($customer);
-        // echo "</pre>";
-        // exit;
-        return view('s_pembayaran.index')
-          ->with('customer',$customer)
-          ->with('customer_email',$customer_email)
-          ->with('product_arr',$product_arr);
+        //
     }
 
     /**
