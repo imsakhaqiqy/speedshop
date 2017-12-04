@@ -31,6 +31,10 @@
              animation: "slide",
              controlNav: "thumbnails"
              });
+             $('.flexslider2').flexslider({
+             animation: "slide",
+             controlNav: "thumbnails"
+             });
            });
            </script>
 
@@ -41,8 +45,7 @@
            <h3>{{ $p }}</h3>
            <p class="availability">Availability: <span class="color">In stock</span></p>
            <div class="price_single">
-             <span class="reducedfrom">Rp {{ number_format($products[0]->amount*2) }}</span>
-             <span class="actual item_price">Rp {{ number_format($products[0]->amount) }}</span><a href="#">click for offer</a>
+             <span class="actual item_price">Rp {{ number_format($products[0]->amount) }}</span>
            </div>
            <h2 class="quick">Quick Overview</h2>
            <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
@@ -56,11 +59,6 @@
              <li><a class="color6" href="#"><span> </span></a></li>
              <li><a class="color7" href="#"><span> </span></a></li>
              <li><a class="color8" href="#"><span> </span></a></li>
-           </ul>
-           <h3>Length</h3>
-           <ul class="size">
-             <li><a href="#">7</a></li>
-             <li><a href="#">6</a></li>
            </ul>
            <div class="quantity_box">
                <span>Quantity:</span>
@@ -282,4 +280,93 @@
          </div>
      </div>
 <!--//end-bottom-->
+
+<!-- Modal cart message-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Keranjang Belanja</h5>
+        <div class="close1"></div>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="alert alert-success" role="alert">
+                <p style="font-size:10px">{{ $p }} telah ditambahkan ke Keranjang Belanja</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-2">
+                <img src="front/images/sampel.jpg" alt=""/ width="100%" height="100%">
+              </div>
+              <div class="col-md-6">
+                <span style="font-size:12px">{{ $p }}</span>
+                <br>
+                  <span class="actual item_price" style="font-size:12px">Rp {{ number_format($products[0]->amount) }}</span>
+              </div>
+              <div class="col-md-4">
+                @if(Session::has('chart_id'))
+                 <input type="number" id="quantity_cart" name="quantity" min="1" max="100" style="width:100%" value="{{ Session::get('chart_id') }}">
+                @endif
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="delivery">
+                <input type="hidden" id="harga_barang" value="{{ $products[0]->amount }}">
+                <p>Harga barang : {{ number_format($products[0]->amount) }}</p>
+                <br>
+                <p>Biaya kirim : <i>Belum termasuk</i></p>
+                <br>
+                <p>Total harga : @if(Session::has('chart_id'))
+                 &nbsp;<span id="total_harga">{{ $products[0]->amount }}</span>
+                @endif
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="{{ url('chart') }}" class="btn btn-danger">Lihat Keranjang</a>
+        <button type="button" class="btn btn-primary">Lanjut ke Pembayaran</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End modal cart message -->
+@endsection
+
+@section('additional_scripts')
+  {!! Html::script('front/js/autoNumeric.js') !!}
+  <script type="text/javascript">
+  $(document).ready(function() {
+    @if(Session::has('cartMessage'))
+     @if(Session::get('cartMessage') == 1)
+     $('#exampleModal').modal('show');
+     @endif
+    @endif
+    var harga = $('#harga_barang').val();
+    var quantity = $('#quantity_cart').val();
+    $('#total_harga').text(harga*quantity).autoNumeric('init',{
+      aSep:',',
+      aDec:'.'
+    });
+    $('.close1').on('click',function(c){
+      $('#exampleModal').modal('hide');
+    });
+    $('#quantity_cart').on('change',function(c){
+      var harga = $('#harga_barang').val();
+      var quantity = $('#quantity_cart').val();
+      $('#total_harga').text(harga*quantity).autoNumeric('update',{
+        aSep:',',
+        aDec:'.'
+      });
+    })
+  });
+  </script>
 @endsection

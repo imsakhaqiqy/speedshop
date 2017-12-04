@@ -20,10 +20,10 @@ body, html{
  	margin-top: 30px;
 }
 
-h1.title { 
+h1.title {
 	font-size: 50px;
-	font-family: 'Passion One', cursive; 
-	font-weight: 400; 
+	font-family: 'Passion One', cursive;
+	font-weight: 400;
 }
 
 hr{
@@ -88,10 +88,10 @@ input::-webkit-input-placeholder {
                     </p>
                 	</br>
 	               	</div>
-	            </div> 
+	            </div>
 				<div class="main-login main-center">
 					 {!! Form::open(['route'=>'daftar.store', 'role'=>'form', 'class'=>'form-horizontal', 'id'=>'form-create-role']) !!}
-						
+
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Name</label>
 							<div class="cols-sm-10">
@@ -152,7 +152,7 @@ input::-webkit-input-placeholder {
 				                </button>
 				             </div>
 						</div>
-					
+
 					{!! Form::close() !!}
 				</div>
 			</div>
@@ -165,14 +165,15 @@ input::-webkit-input-placeholder {
 
 <script type="text/javascript">
 
-	
+
 		$(document).ready(function() {
     // Fungsi dimulai...
     	$('#home').hide();
     	$('.header_bg').hide();
     	$('.footer').hide();
+			$('.navbar').hide();
 		});
-	
+
 
 </script>
 

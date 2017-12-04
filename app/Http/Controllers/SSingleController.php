@@ -56,15 +56,24 @@ class SSingleController extends Controller
         $chart = new Chart;
         $chart->product_id = $product;
         $chart->quantity = $quantity;
-        $chart->customer_id = 1;
+        $customer_id = \DB::table('customers')->where('id_user',Auth::user()->id)->value('id');
+        $chart->customer_id = $customer_id;
         $chart->status = 0;
         $chart->deleted = 0;
-        $chart->save();
+        $save = $chart->save();
+
+        if($save){
+          $chart_id = $chart->quantity;
+        }
+
+        $product_name = \DB::table('products')->where('id',$products_id)->value('name');
         // echo "<pre>";
         // print_r($quantity);
         // echo "</pre>";
         // exit;
-        return redirect('chart');
+        return redirect("single?p=$product_name")
+          ->with('cartMessage',1)
+          ->with('chart_id',$chart_id);
     }
 
     /**

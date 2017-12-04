@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
 use App\DB;
 use App\Chart;
 
@@ -18,7 +19,8 @@ class SChartController extends Controller
      */
     public function index()
     {
-        $charts = \DB::table('charts')->select('*',\DB::raw('sum(quantity) as quantity'))->where('customer_id',1)->groupBy('product_id')->get();
+        $id_customer = \DB::table('customers')->where('id_user',Auth::user()->id)->value('id');
+        $charts = \DB::table('charts')->select('*',\DB::raw('sum(quantity) as quantity'))->where('customer_id',$id_customer)->groupBy('product_id')->get();
         // echo "<pre>";
         // print_r($charts);
         // echo "</pre>";
