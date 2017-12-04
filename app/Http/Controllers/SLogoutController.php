@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use Auth;
 use Illuminate\Http\Request;
 
-use Auth;
 use App\Http\Requests;
 
-use App\User;
-
-class S_LoginController extends Controller
+class SLogoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,26 +16,9 @@ class S_LoginController extends Controller
      */
     public function index()
     {
-        return view('s_masuk.index');
-    }
-
-    public function berhasil(Request $request)
-    {
-      $email = $request->email;
-      $password = $request->password;
-      if(Auth::attempt(['email'=>$email, 'password'=>$password])){
+        Auth::logout();
         return redirect('speedshop');
-      }
-      else{
-        return redirect('masuk')
-          ->with('errorMessage','maaf login gagal');
-      }
-
     }
-
-    public function keluar() {
-        return redirect('speedshop');
-      }
 
     /**
      * Show the form for creating a new resource.

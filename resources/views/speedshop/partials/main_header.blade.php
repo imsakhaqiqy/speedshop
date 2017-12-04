@@ -10,22 +10,56 @@
 		<div class="header_top">
 			<div class="top_right">
 				<div class="logo">
-	 			  <a href="index.html"><h1>Icon <span>SpeedShop</span></h1> </a>
+					<h3 class="logo-brand">
+	 			  	<a href="index.html" title="Belanja Online Aman, Nyaman dan Terpercaya">Icon SpeedShop</a>
+					</h3>
 	 		  </div>
 			</div>
-			<div class="dropdown">
-	 		   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">kategori
-	 		   <span class="caret"></span></button>
-	 		   <ul class="dropdown-menu">
-	 		     <li><a href="#">HTML</a></li>
-	 		     <li><a href="#">CSS</a></li>
-	 		     <li><a href="#">JavaScript</a></li>
-	 		   </ul>
- 		 </div>
-			<div class="top_left">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav kategori">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu list">
+							<li><a href="#">Page 1-1</a></li>
+							<li><a href="#">Page 1-2</a></li>
+							<li><a href="#">Page 1-3</a></li>
+						</ul>
+					</li>
+				</ul>
+					<form class="navbar-form navbar-left" style="width:50%">
+						<div class="input-group cariproduk">
+							<input type="text" class="form-control" placeholder="Cari Produk">
+							<div class="input-group-btn">
+								<button class="btn btn-default" type="submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+			</div>
+			<div class="top_left register">
 				<ul>
 					<li><h6><a href="{{ url('daftar')}}">Register</a></h6></li>
-					<li><h6><span></span><a href="{{ url('masuk')}}">Login</a></h6></li>
+
+						<div class="collapse navbar-collapse" id="app-navbar-collapse">
+							<!-- Right Side Of Navbar -->
+								<ul class="nav navbar-nav navbar-right">
+									@if (Auth::guest())
+									<li><h6><span></span><a href="{{ url('masuk')}}">Login</a></h6></li>
+									@else
+											<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+															{{ Auth::user()->name }} <span class="caret"></span>
+													</a>
+
+													<ul class="dropdown-menu" role="menu">
+															<li><a href="{{ URL::to('keluar')}}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+													</ul>
+											</li>
+									@endif
+							</ul>
+					</div>
 				</ul>
 				<div class="cart box_1">
 					<a href="{{ url('chart') }}">
@@ -41,7 +75,7 @@
 	</div>
 </div>
 <!--header-->
-<div class="header_bg">
+<!-- <div class="header_bg">
    <div class="container">
 	<div class="header">
 	  <div class="head-t">
@@ -49,7 +83,7 @@
 
 		</div>
 		<div class="clearfix"></div>
-	    </div>
+	    </div> -->
 		<!--start-header-menu-->
 		<!--<ul class="megamenu skyblue">
 			<li class="active grid"><a class="color1" href="index.html">Home</a></li>
@@ -693,6 +727,11 @@
     				</div>
 				</li>
 		 </ul>-->
+<<<<<<< HEAD
 </div>
+=======
+
+	</div>
+>>>>>>> developer
 </div>
 </div>

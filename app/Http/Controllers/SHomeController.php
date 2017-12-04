@@ -96,8 +96,8 @@ class SHomeController extends Controller
         //
     }
 
-    public function single()
-    {
-      return view('family.create');
+    public function keluar() {
+        Auth::logout();
+        return view('s_home.speedshop');
     }
 }
