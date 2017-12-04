@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Illuminate\Support\Facades\DB;
-use App\Family;
-use App\Product;
+use App\DB;
+use App\Chart;
 
-class SHomeController extends Controller
+class SChartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +18,13 @@ class SHomeController extends Controller
      */
     public function index()
     {
-        $hotlist = \DB::table('products')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
+        $charts = \DB::table('charts')->where('customer_id',1)->get();
         // echo "<pre>";
-        // print_r($family);
+        // print_r($charts);
         // echo "</pre>";
         // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist);
+        return view('chart.index')
+          ->with('charts',$charts);
     }
 
     /**
@@ -37,7 +34,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -94,10 +91,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function single()
-    {
-      return view('family.create');
     }
 }

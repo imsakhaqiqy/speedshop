@@ -37,11 +37,12 @@
          </div>
        <div class="col-md-7 single-text">
          <div class="details-left-info simpleCart_shelfItem">
+           {!! Form::open(['route'=>'single.store', 'role'=>'form', 'class'=>'', 'id'=>'form-create-family']) !!}
            <h3>{{ $p }}</h3>
            <p class="availability">Availability: <span class="color">In stock</span></p>
            <div class="price_single">
-             <span class="reducedfrom">Rp {{ number_format($category[0]->amount*2) }}</span>
-             <span class="actual item_price">Rp {{ number_format($category[0]->amount) }}</span><a href="#">click for offer</a>
+             <span class="reducedfrom">Rp {{ number_format($products[0]->amount*2) }}</span>
+             <span class="actual item_price">Rp {{ number_format($products[0]->amount) }}</span><a href="#">click for offer</a>
            </div>
            <h2 class="quick">Quick Overview</h2>
            <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
@@ -65,7 +66,7 @@
                <span>Quantity:</span>
              <div class="product-qty">
                <!-- <select>
-               @for($a = 0; $a < $category[0]->stock; $a ++)
+               @for($a = 0; $a < $products[0]->stock; $a ++)
                  <option>{{ $a+1 }}</option>
                @endfor
                </select> -->
@@ -74,8 +75,10 @@
            </div>
          <div class="clearfix"> </div>
        <div class="single-but item_add">
+         <input type="hidden" name="product_id" value="{{ $products[0]->id }}">
          <input type="submit" value="add to cart"/>
        </div>
+       {!! Form::close() !!}
      </div>
    </div>
    <div class="clearfix"></div>

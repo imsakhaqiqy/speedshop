@@ -28,11 +28,11 @@
 					<li><h6><span></span><a href="{{ url('masuk')}}">Login</a></h6></li>
 				</ul>
 				<div class="cart box_1">
-					<a href="checkout.html">
+					<a href="{{ url('chart') }}">
 					<div class="total">
 						<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
 						<i class="glyphicon glyphicon-shopping-cart"></i></a>
-					<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+					<p><a href="{{ url('chart') }}" class="simpleCart_empty">Empty Cart</a></p>
 					<div class="clearfix"> </div>
 				</div>
 			</div>

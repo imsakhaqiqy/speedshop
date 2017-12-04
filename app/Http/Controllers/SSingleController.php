@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
 use Illuminate\Support\Facades\DB;
-use App\Category;
+use App\Product;
+use App\Chart;
 
 class SSingleController extends Controller
 {
@@ -19,14 +21,14 @@ class SSingleController extends Controller
     public function index(Request $request)
     {
         $p = $request->p;
-        $category = \DB::table('categories')->where('name',$p)->get();
+        $products = \DB::table('products')->where('name',$p)->get();
         // echo "<pre>";
         // print_r($category);
         // echo "</pre>";
         // exit;
         return view('single.index')
           ->with('p',$p)
-          ->with('category',$category);
+          ->with('products',$products);
     }
 
     /**
@@ -47,7 +49,22 @@ class SSingleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products_id = $request->product_id;
+        $product = \DB::table('products')->where('id',$products_id)->value('id');
+        $quantity = $request->quantity;
+        $customer = Auth::user()->id;
+        $chart = new Chart;
+        $chart->product_id = $product;
+        $chart->quantity = $quantity;
+        $chart->customer_id = 1;
+        $chart->status = 0;
+        $chart->deleted = 0;
+        $chart->save();
+        echo "<pre>";
+        print_r($quantity);
+        echo "</pre>";
+        exit;
+        return redirect();
     }
 
     /**
