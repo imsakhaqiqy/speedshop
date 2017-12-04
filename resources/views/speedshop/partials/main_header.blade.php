@@ -29,6 +29,7 @@
             </div>
         </div>
         </form>
+        <a href="{{ url('pembayaran')}}"><span></span> bayar</a></li>
     </div>
     <ul class="nav navbar-nav navbar-right total">
       <li class="total">
@@ -51,6 +52,7 @@
 															<li><a href="{{ URL::to('keluar')}}"><i class="glyphicon glyphicon-log-out"></i>Logout</a></li>
 													</ul>
 											</li>
+
 									@endif
     </ul>
     <div class="clearfix"></div>
