@@ -6,28 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
 use Illuminate\Support\Facades\DB;
-use App\Family;
 use App\Product;
+use App\Chart;
 
-class SHomeController extends Controller
+class SSingleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $hotlist = \DB::table('products')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
+        $p = $request->p;
+        $products = \DB::table('products')->where('name',$p)->get();
         // echo "<pre>";
-        // print_r($family);
+        // print_r($category);
         // echo "</pre>";
         // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist);
+        return view('single.index')
+          ->with('p',$p)
+          ->with('products',$products);
     }
 
     /**
@@ -37,7 +38,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -48,7 +49,22 @@ class SHomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products_id = $request->product_id;
+        $product = \DB::table('products')->where('id',$products_id)->value('id');
+        $quantity = $request->quantity;
+        $customer = Auth::user()->id;
+        $chart = new Chart;
+        $chart->product_id = $product;
+        $chart->quantity = $quantity;
+        $chart->customer_id = 1;
+        $chart->status = 0;
+        $chart->deleted = 0;
+        $chart->save();
+        echo "<pre>";
+        print_r($quantity);
+        echo "</pre>";
+        exit;
+        return redirect();
     }
 
     /**
@@ -94,10 +110,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function keluar() {
-        Auth::logout();
-        return view('s_home.speedshop');
     }
 }

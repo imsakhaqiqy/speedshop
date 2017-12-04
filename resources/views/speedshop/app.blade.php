@@ -33,6 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {!! Html::script('front/js/modernizr.custom.js') !!}
 {!! Html::script('front/js/move-top.js') !!}
 {!! Html::script('front/js/easing.js') !!}
+{!! Html::style('front/css/flexslider.css') !!}
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -42,6 +43,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 			});
 </script>
+{!! Html::script('front/js/jquery.jscrollpane.min.js') !!}
+<script type="text/javascript" id="sourcecode">
+  $(function()
+  {
+    $('.scroll-pane').jScrollPane();
+  });
+</script>
+<!-- //the jScrollPane script -->
 <style>
   #overflow{
     position:fixed;
@@ -81,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
   @include('speedshop.partials.main_header')
-  
+
   @yield('content')
   <!-- START FOOTER -->
   @include('speedshop.partials.footer')

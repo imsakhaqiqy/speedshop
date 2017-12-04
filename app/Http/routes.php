@@ -12,6 +12,10 @@
 */
 Route::resource('keluar','SLogoutController');
 
+Route::resource('chart','SChartController');
+Route::resource('single','SSingleController');
+
+
 Route::resource('masuk', 'S_LoginController');
 Route::post('berhasil','S_LoginController@berhasil');
 

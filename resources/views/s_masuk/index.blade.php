@@ -135,7 +135,7 @@ input::-webkit-input-placeholder {
                   @endif
                   @if(Session::has('errorMessage'))
                     <div class="alert alert-error alert-dismissible" role="alert" id="alert-error">
-                        
+
                         <strong>Error...!</strong> <span id="error-info"> {{ Session::get('errorMessage') }}</span>
                     </div>
                   @endif
@@ -159,6 +159,7 @@ input::-webkit-input-placeholder {
     	$('#home').hide();
     	$('.header_bg').hide();
     	$('.footer').hide();
+			$('.navbar').hide();
 		});
 
 

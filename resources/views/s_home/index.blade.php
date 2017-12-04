@@ -5,45 +5,64 @@
     <!--start-banner-->
        <div class="banner">
          <div class="container">
+           <h2>Hot List</h2>
+           <br>
           <div class="banner-grids">
               <div class="col-md-6 jocket">
               <div class="jock-img">
-                {!! Html::image('front/images/4.jpg') !!}
+                <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
+                {!! Html::image('front/images/sampel.jpg') !!}
+                </a>
               </div>
                <div class="jock-text">
-                 <h3 class="b-tittle">Knalpot</h3>
-              <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+                 <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
+                 <h3 class="b-tittle">{{ $hotlist[0]->name }}</h3>
+                 <i class="collection">Rp {{ number_format($hotlist[0]->amount) }}</i>
+                 <i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
               <div class="clearfix"> </div>
             </div>
             <div class="col-md-6 shoe">
                 <div class="shoe-img">
-                  {!! Html::image('front/images/1.jpg', '', ['class'=>'img-responsive']) !!}
+                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+                  {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
+                  </a>
                 </div>
                <div class="shoe-text">
-                  <h3 class="b-tittle">Shock</h3>
-                <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+                  <h3 class="b-tittle">{{ $hotlist[1]->name }}</h3>
+                  <i class="collection">Rp {{ number_format($hotlist[1]->amount) }}</i>
+                  <i class="glyphicon glyphicon-arrow-right"></i></a>
                 </div>
                 <div class="clearfix"> </div>
            <div class="bottom-bags">
                 <div class="col-md-6 pack">
                  <div class="bag-text">
-                    <h3 class="b-tittle">xaxa</h3>
-                  <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+                  <h3 class="b-tittle">{{ $hotlist[2]->name }}</h3>
+                  <i class="collection">Rp {{ number_format($hotlist[2]->amount) }}</i>
+                  <i class="glyphicon glyphicon-arrow-right"></i></a>
                   </div>
                   <div class="bag-img">
-                    {!! Html::image('front/images/2.jpg', '', ['class'=>'img-responsive']) !!}
+                    <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
+                    </a>
                   </div>
                   <div class="clearfix"> </div>
 
                 </div>
                 <div class="col-md-6 glass">
                  <div class="glass-text">
-                    <h3 class="b-tittle">xaxa</h3>
-                <a class="collection" href="single.html">View collection <i class="glyphicon glyphicon-arrow-right"></i></a>
+                    <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+                    <h3 class="b-tittle">{{ $hotlist[3]->name }}</h3>
+                    <i class="collection">Rp {{ number_format($hotlist[3]->amount) }}</i>
+                    <i class="glyphicon glyphicon-arrow-right"></i></a>
+                <!-- <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">View collection <i class="glyphicon glyphicon-arrow-right"></i></a> -->
                   </div>
                   <div class="glass-img">
-                    {!! Html::image('front/images/3.jpg', '', ['class'=>'img-responsive']) !!}
+                    <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
+                    </a>
                   </div>
                   <div class="clearfix"> </div>
 
@@ -58,33 +77,33 @@
          <!--/start-fashion-->
     <div class="fashion-section">
      <div class="container">
-         <h3 class="tittle">Fashions</h3>
+         <h3 class="tittle">Category</h3>
 
        <div class="fashion-info">
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/5.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/sampel.jpg', '', ['class'=>'']) !!}
             <figcaption>
-              <h4>Nuevo Shop</h4>
-              <p class="cart"><a href="single.html">Shop</a></p>
+              <h4>{{ $family[0]->name }}</h4>
+              <p class="cart"><a href="single.html">BELI SEKARANG</a></p>
             </figcaption>
           </figure>
         </div>
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/f2.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/sampel.jpg', '', ['class'=>'']) !!}
             <figcaption>
-              <h4>Nuevo Shop</h4>
-                <p class="cart"><a href="single.html">Shop</a></p>
+              <h4>{{ $family[1]->name }}</h4>
+                <p class="cart"><a href="single.html">BELI SEKARANG</a></p>
             </figcaption>
           </figure>
         </div>
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/f3.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/sampel.jpg', '', ['class'=>'']) !!}
             <figcaption>
-              <h4>Nuevo Shop</h4>
-              <p class="cart"><a href="single.html">Shop</a></p>
+              <h4>{{ $family[2]->name }}</h4>
+              <p class="cart"><a href="single.html">BELI SEKARANG</a></p>
             </figcaption>
           </figure>
         </div>
@@ -101,7 +120,7 @@
        <div class="fashion-info">
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/f4.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/sampel.jpg', '', ['class'=>'']) !!}
             <figcaption>
               <h4>Nuevo Shop</h4>
               <p class="cart"><a href="single.html">Shop</a></p>
@@ -110,7 +129,7 @@
         </div>
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/f5.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/sampel.jpg', '', ['class'=>'']) !!}
             <figcaption>
               <h4>Nuevo Shop</h4>
                 <p class="cart"><a href="single.html">Shop</a></p>
@@ -119,7 +138,7 @@
         </div>
         <div class="col-md-4 fashion-grids">
           <figure class="effect-bubba">
-            {!! Html::image('front/images/f6.jpg', '', ['class'=>'']) !!}
+            {!! Html::image('front/images/sampel.jpg', '', ['class'=>'']) !!}
             <figcaption>
               <h4>Nuevo Shop</h4>
               <p class="cart"><a href="single.html">Shop</a></p>
@@ -152,7 +171,7 @@
               <div class="tag-grid">
                 <div class="tag-wrapper">
                   <a href="single.html">
-                    {!! Html::image('front/images/s2.jpg', '', ['class'=>'img-responsive']) !!}
+                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
                   </a>
                   <div class="r-title">
                     <h3>Sunny Dress</h3>
@@ -164,7 +183,7 @@
             <div class="tag-grid">
                 <div class="tag-wrapper">
                   <a href="single.html">
-                    {!! Html::image('front/images/s1.jpg', '', ['class'=>'img-responsive']) !!}
+                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
                   </a>
                   <div class="atc"><a href="single.html">Shop</a></div>
                   <div class="r-title">
@@ -176,7 +195,7 @@
             <div class="tag-grid">
                 <div class="tag-wrapper">
                   <a href="single.html">
-                    {!! Html::image('front/images/s3.jpg', '', ['class'=>'img-responsive']) !!}
+                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
                   </a>
                   <div class="atc"><a href="single.html">Shop</a></div>
                   <div class="r-title">
