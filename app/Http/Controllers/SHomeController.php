@@ -83,4 +83,9 @@ class SHomeController extends Controller
     {
         //
     }
+
+    public function keluar() {
+        Auth::logout();
+        return view('s_home.speedshop');
+    }
 }

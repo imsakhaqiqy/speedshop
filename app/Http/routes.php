@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('keluar','SLogoutController');
+
 Route::resource('masuk', 'S_LoginController');
 Route::post('berhasil','S_LoginController@berhasil');
 
