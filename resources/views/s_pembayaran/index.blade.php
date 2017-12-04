@@ -1,10 +1,28 @@
 @extends('speedshop.app')
 
 @section('content')
+<style type="text/css">
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+label {
+    font-size: 13px;
+    font-weight: normal;
+}
+input {
+    font-size: 13px;
+}
+.radio {
+    font-size: 13px;
+}
+</style>
 <br>
 <br>
 <br>
 <br>
+<div class="container">
 <div class="col-md-6">
     <br>
     <h2>Data Pribadi</h2>
@@ -29,7 +47,7 @@
                 </div>
             </div>
             <br>
-            <h3>Alamat Pengiriman</h3>
+            <h2>Alamat Pengiriman</h2>
             <br>
 
             <div class="form-group">
@@ -39,7 +57,7 @@
             </div>
             <br>
 
-            <h3 class="">Metode Pengiriman</h3>
+            <h2 class="">Metode Pengiriman</h2>
 
             <div id="form-row-shipping_value_wrapper" class="sirclo-form-row">
               <div id="form-row-shipping_value" class="sirclo-form-row">
@@ -52,7 +70,7 @@
             </div>
             <br>
 
-            <h3 class="">Metode Pembayaran</h3>
+            <h2 class="">Metode Pembayaran</h2>
 
             <div id="form-row-payment_method" class="sirclo-form-row">
               <div class="sirclo-form-input radio">
@@ -79,7 +97,7 @@
         </form>
 
 </div>
-
+</div>
 @endsection
 
 @section('additional_scripts')

@@ -10,11 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 Route::resource('pembayaran','SPembayaranController');
 Route::resource('keluar','SLogoutController');
 
 Route::resource('chart','SChartController');
 Route::resource('single','SSingleController');
+
 
 
 Route::resource('masuk', 'S_LoginController');
