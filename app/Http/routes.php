@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('category', 'CategoryController');
+
 Route::resource('product', 'ProductController');
 
 Route::resource('family', 'FamilyController');
@@ -41,5 +43,6 @@ Route::controller('datatables', 'DatatablesController',[
   'getMenus'=>'datatables.getMenus',
   'getProducts'=>'datatables.getProducts',
   'getUnits'=>'datatables.getUnits',
-  'getFamilies'=>'datatables.getFamilies'
+  'getFamilies'=>'datatables.getFamilies',
+  'getCategories'=>'datatables.getCategories'
 ]);
