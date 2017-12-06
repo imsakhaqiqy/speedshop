@@ -7,73 +7,52 @@
          <div class="container">
            <h2>Hot List</h2>
            <br>
-          <div class="banner-grids">
-              <div class="col-md-6 jocket">
-              <div class="jock-img">
+              <div class="col-md-3">
                 <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
-                {!! Html::image('front/images/sampel.jpg') !!}
+                {!! Html::image('front/images/tamengknalpotmio.jpg', '', ['class'=>'img-responsive']) !!}
                 </a>
-              </div>
-               <div class="jock-text">
                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
                  <h3 class="b-tittle">{{ $hotlist[0]->name }}</h3>
                  <i class="collection">Rp {{ number_format($hotlist[0]->amount) }}</i>
                  <i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
-              <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-6 shoe">
-                <div class="shoe-img">
-                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
-                  {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
+
+              <div class="col-md-3">
+                <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+                  {!! Html::image('front/images/tamengknalpotbeat.jpg', '', ['class'=>'img-responsive']) !!}
                   </a>
-                </div>
-               <div class="shoe-text">
                   <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
                   <h3 class="b-tittle">{{ $hotlist[1]->name }}</h3>
                   <i class="collection">Rp {{ number_format($hotlist[1]->amount) }}</i>
                   <i class="glyphicon glyphicon-arrow-right"></i></a>
-                </div>
-                <div class="clearfix"> </div>
-           <div class="bottom-bags">
-                <div class="col-md-6 pack">
-                 <div class="bag-text">
+              </div>
+
+                <div class="col-md-3">
+                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+                  {!! Html::image('front/images/corongknalpot.jpg', '', ['class'=>'img-responsive']) !!}
+                  </a>
                   <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
                   <h3 class="b-tittle">{{ $hotlist[2]->name }}</h3>
                   <i class="collection">Rp {{ number_format($hotlist[2]->amount) }}</i>
                   <i class="glyphicon glyphicon-arrow-right"></i></a>
-                  </div>
-                  <div class="bag-img">
-                    <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
-                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
-                    </a>
-                  </div>
-                  <div class="clearfix"> </div>
-
                 </div>
-                <div class="col-md-6 glass">
-                 <div class="glass-text">
+                <div class="col-md-3">
+                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+                  {!! Html::image('front/images/selangrem.jpg', '', ['class'=>'img-responsive']) !!}
+                  </a>
                     <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
                     <h3 class="b-tittle">{{ $hotlist[3]->name }}</h3>
                     <i class="collection">Rp {{ number_format($hotlist[3]->amount) }}</i>
-                    <i class="glyphicon glyphicon-arrow-right"></i></a>
-                <!-- <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">View collection <i class="glyphicon glyphicon-arrow-right"></i></a> -->
-                  </div>
-                  <div class="glass-img">
-                    <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
-                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
-                    </a>
-                  </div>
-                  <div class="clearfix"> </div>
-
+                    <i class="glyphicon glyphicon-arrow-right"></i>
+                  </a>
                 </div>
-               <div class="clearfix"> </div>
+
+
+
              </div>
              </div>
               <div class="clearfix"> </div>
-          </div>
-       </div>
-     </div>
+        
          <!--/start-fashion-->
     <div class="fashion-section">
      <div class="container">

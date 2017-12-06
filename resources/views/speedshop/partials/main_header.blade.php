@@ -8,21 +8,31 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="{{ url('speedshop') }}">ICON SPEEDSHOP</a>
-    <a class="navbar-brand" href="{{ url('konfirmasipembayaran') }}">konfirmasi</a>
   </div>
     <ul class="nav navbar-nav">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
           <span class="caret"></span></a>
+            <?php
+              $category = \DB::table('families')->get();
+
+             ?>
           <ul class="dropdown-menu list">
-            <li><a href="#">Page 1-1</a></li>
+            <?php foreach ($category as $key){?>
+              <li><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
+
+          <?php  } ?>
+
+
+
+            <!-- <li><a href="#">Page 1-1</a></li>
             <li><a href="#">Page 1-2</a></li>
-            <li><a href="#">Page 1-3</a></li>
+            <li><a href="#">Page 1-3</a></li> -->
           </ul>
         </li>
       </ul>
-    <div class="col-sm-7 col-md-7">
-        <form class="navbar-form" role="search">
+    <div class="col-sm-5 col-md-5">
+        <form class="navbar-form" role="search" action="{{ url('list-product') }}">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Cari Produk" name="q">
             <div class="input-group-btn">
@@ -57,6 +67,9 @@
                   <a href="{{ url('daftar')}}"><span></span> Daftar</a></li>
                   <li><a href="{{ url('masuk')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 									@else
+                      <li>
+                        <a class="navbar-brand" href="{{ url('konfirmasipembayaran') }}">konfirmasi</a>
+                      </li>
 											<li class="dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 															<span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }} <span class="caret"></span>

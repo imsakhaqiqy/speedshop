@@ -10,14 +10,14 @@
        <div class="col-md-5 grid-single">
            <div class="flexslider">
              <ul class="slides">
-             <li data-thumb="front/images/sampel.jpg">
-               <div class="thumb-image"> <img src="front/images/sampel.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="front/images/{{$products[0]->image}}">
+               <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
-             <li data-thumb="front/images/sampel.jpg">
-                <div class="thumb-image"> <img src="front/images/sampel.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="front/images/{{$products[0]->image}}">
+                <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
-             <li data-thumb="front/images/sampel.jpg">
-                <div class="thumb-image"> <img src="front/images/sampel.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="front/images/{{$products[0]->image}}">
+                <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
              </ul>
            </div>
@@ -49,7 +49,7 @@
            </div>
            <h2 class="quick">Quick Overview</h2>
            <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
-             <h3>available Colors</h3>
+             <!-- <h3>available Colors</h3>
            <ul class="product-colors">
              <li><a class="color1" href="#"><span> </span></a></li>
              <li><a class="color2" href="#"><span> </span></a></li>
@@ -59,7 +59,7 @@
              <li><a class="color6" href="#"><span> </span></a></li>
              <li><a class="color7" href="#"><span> </span></a></li>
              <li><a class="color8" href="#"><span> </span></a></li>
-           </ul>
+           </ul> -->
            <div class="quantity_box">
                <span>Quantity:</span>
              <div class="product-qty">
@@ -301,7 +301,7 @@
           </div>
           <div class="row">
               <div class="col-md-2">
-                <img src="front/images/sampel.jpg" alt=""/ width="100%" height="100%">
+                <img src="front/images/{{$products[0]->image}}" alt=""/ width="100%" height="100%">
               </div>
               <div class="col-md-6">
                 <span style="font-size:12px">{{ $p }}</span>

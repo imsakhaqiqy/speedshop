@@ -22,7 +22,11 @@
            <div class="close1 cl{{$a}}"> </div>
            <div class="cart-sec simpleCart_shelfItem">
               <div class="cart-item cyc">
-                 {!! Html::image('front/images/sampel.jpg','',['class' => 'img-responsive']) !!}
+                  <?php
+                      $image = \DB::table('products')->where('id',$charts[$a]->product_id)->value('image');
+
+                  ?>
+                 {!! Html::image("front/images/$image",'',['class' => 'img-responsive']) !!}
               </div>
                <div class="cart-item-info">
               <h3><a href="#"> {{ \DB::table('products')->where('id',$charts[$a]->product_id)->value('name') }} </a><span>Pickup time:</span></h3>
