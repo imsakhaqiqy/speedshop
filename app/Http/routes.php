@@ -11,6 +11,7 @@
 |
 */
 
+Route::resource('konfirmasipembayaran','S_KonfirmasiPembayaran');
 Route::resource('pembayaran','SPembayaranController');
 Route::resource('keluar','SLogoutController');
 

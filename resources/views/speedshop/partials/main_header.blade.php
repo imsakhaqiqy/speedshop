@@ -8,6 +8,7 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="{{ url('speedshop') }}">ICON SPEEDSHOP</a>
+    <a class="navbar-brand" href="{{ url('konfirmasipembayaran') }}">konfirmasi</a>
   </div>
     <ul class="nav navbar-nav">
         <li class="dropdown">
