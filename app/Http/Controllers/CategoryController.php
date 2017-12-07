@@ -36,13 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $families = New Family;
-        $families->name = $request->name;
-        $families->creator = \Auth::user()->id;
-        $families->deleted = 0;
-        $families->save();
-        return redirect('family')
-          ->with('successMessage', 'family has been added');
+        // $families = New Family;
+        // $families->name = $request->name;
+        // $families->creator = \Auth::user()->id;
+        // $families->deleted = 0;
+        // $families->save();
+        // return redirect('family')
+        //   ->with('successMessage', 'family has been added');
     }
 
     /**
@@ -64,9 +64,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $family = Family::findOrFail($id);
-        return view('family.edit')
-          ->with('family', $family);
+        // $family = Family::findOrFail($id);
+        // return view('family.edit')
+        //   ->with('family', $family);
     }
 
     /**
@@ -78,13 +78,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $families = Family::findOrFail($id);
-        $families->name = $request->name;
-        $families->creator = \Auth::user()->id;
-        $families->deleted = 0;
-        $families->save();
-        return redirect('family/'.$id.'/edit')
-          ->with('successMessage', 'Family has been updated');
+        // $families = Family::findOrFail($id);
+        // $families->name = $request->name;
+        // $families->creator = \Auth::user()->id;
+        // $families->deleted = 0;
+        // $families->save();
+        // return redirect('family/'.$id.'/edit')
+        //   ->with('successMessage', 'Family has been updated');
     }
 
     /**

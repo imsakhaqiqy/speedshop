@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Illuminate\Support\Facades\DB;
-use App\Family;
-use App\Product;
-
-class SHomeController extends Controller
+class SLogoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,18 +16,8 @@ class SHomeController extends Controller
      */
     public function index()
     {
-        $hotlist = \DB::table('products')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
-        $feature_collection = \DB::table('products')->limit(3)->offset(5)->get();
-        
-        // echo "<pre>";
-        // print_r($family);
-        // echo "</pre>";
-        // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist)
-          ->with('feature_collection',$feature_collection);
+        Auth::logout();
+        return redirect('speedshop');
     }
 
     /**
@@ -40,7 +27,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -97,10 +84,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function keluar() {
-        Auth::logout();
-        return view('s_home.speedshop');
     }
 }

@@ -11,6 +11,24 @@
 |
 */
 Route::resource('category', 'CategoryController');
+// Route::get('send_test_email',function(){
+//     Mail::raw('Sending emails with Mailgun and laravel is easy!', function($message){
+//       $message->subject('Mailgun');
+//       $message->from('no-reply@iconspeedshop.com','Icon SpeedShop');
+//       $message->to('imsakhaqiqy24@gmail.com');
+//     });
+//});
+Route::resource('list-product','ListProductController');
+
+Route::resource('konfirmasipembayaran','S_KonfirmasiPembayaran');
+Route::resource('pembayaran','SPembayaranController');
+Route::resource('keluar','SLogoutController');
+
+Route::resource('chart','SChartController');
+Route::resource('single','SSingleController');
+
+Route::resource('masuk', 'S_LoginController');
+Route::post('berhasil','S_LoginController@berhasil');
 
 Route::resource('product', 'ProductController');
 
@@ -26,6 +44,8 @@ Route::resource('menu', 'MenuController');
 Route::resource('user', 'UserController');
 
 Route::resource('role', 'RoleController');
+
+Route::resource('daftar', 'SDaftarController');
 
 Route::resource('speedshop', 'SHomeController');
 

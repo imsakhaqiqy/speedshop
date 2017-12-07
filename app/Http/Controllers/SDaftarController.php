@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Illuminate\Support\Facades\DB;
-use App\Family;
-use App\Product;
+use App\User;
 
-class SHomeController extends Controller
+use App\Customer;
+
+class SDaftarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,18 +19,7 @@ class SHomeController extends Controller
      */
     public function index()
     {
-        $hotlist = \DB::table('products')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
-        $feature_collection = \DB::table('products')->limit(3)->offset(5)->get();
-        
-        // echo "<pre>";
-        // print_r($family);
-        // echo "</pre>";
-        // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist)
-          ->with('feature_collection',$feature_collection);
+        return view('s_daftar.index');
     }
 
     /**
@@ -40,7 +29,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -51,7 +40,25 @@ class SHomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 1 step
+        $user = new User;
+        $user->role_id = 69;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        $id_user = $user->id;
+
+        // 2 step
+        $customer = New Customer;
+        $customer->id_user = $id_user;
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->creator = 0;
+        $customer->deleted = 0;
+        $customer->save();
+        return redirect('masuk')
+            ->with('successMessage', 'Registration succes');
     }
 
     /**
@@ -97,10 +104,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function keluar() {
-        Auth::logout();
-        return view('s_home.speedshop');
     }
 }

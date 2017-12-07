@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Http\Requests;
 
-use Illuminate\Support\Facades\DB;
-use App\Family;
-use App\Product;
+use App\User;
 
-class SHomeController extends Controller
+class S_LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,19 +19,26 @@ class SHomeController extends Controller
      */
     public function index()
     {
-        $hotlist = \DB::table('products')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
-        $feature_collection = \DB::table('products')->limit(3)->offset(5)->get();
-        
-        // echo "<pre>";
-        // print_r($family);
-        // echo "</pre>";
-        // exit;
-        return view('s_home.index')
-          ->with('family',$family)
-          ->with('hotlist',$hotlist)
-          ->with('feature_collection',$feature_collection);
+        return view('s_masuk.index');
     }
+
+    public function berhasil(Request $request)
+    {
+      $email = $request->email;
+      $password = $request->password;
+      if(Auth::attempt(['email'=>$email, 'password'=>$password])){
+        return redirect('speedshop');
+      }
+      else{
+        return redirect('masuk')
+          ->with('errorMessage','maaf login gagal');
+      }
+
+    }
+
+    public function keluar() {
+        return redirect('speedshop');
+      }
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +47,7 @@ class SHomeController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -97,10 +104,5 @@ class SHomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function keluar() {
-        Auth::logout();
-        return view('s_home.speedshop');
     }
 }
