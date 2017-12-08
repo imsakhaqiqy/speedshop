@@ -81,10 +81,10 @@ input::-webkit-input-placeholder {
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">LOGO ICON SPEEDSHOP</h1>
-	               		<h2 class="text-center"><strong>DAFTAR DI ICON SPEEDSHOP</strong></h2>
-	               		<p class="text-center unf-black2-text fs-15">
-                        Sudah punya akun Icon Speedshop? Masuk <a href="/login?state=eyJyZWYiOiJodHRwczovL3d3dy50b2tvcGVkaWEuY29tLz9nY2xpZD1FQUlhSVFvYkNoTUkxODdobzRmTDFnSVZUSlZvQ2gyaG5ReFFFQUFZQVNBQUVnSTRmZkRfQndFXHUwMDI2Z2Nsc3JjPWF3LmRzIiwidXVpZCI6IjVjZWRlNGYxLTllYWItNGZjMy1hNjYzLTRmMjU2MTMyZjdmNyJ9" class="green underline">di sini</a>
+	               		<h1 class="title">Icon SpeedShop</h1>
+	               		<h2 class="text-center"><strong>Sign Up Account</strong></h2>
+	               		<p class="text-center unf-black2-text fs-15">  
+Already have account? Login <a href="{{ url('masuk') }}" class="green underline">Here</a>
                     </p>
                 	</br>
 	               	</div>
@@ -132,7 +132,7 @@ input::-webkit-input-placeholder {
 							</div>
 						</div>
 
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -140,7 +140,7 @@ input::-webkit-input-placeholder {
 									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="form-group ">
 							<div class="col-sm-0 col-sm-offset-2">

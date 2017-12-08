@@ -81,10 +81,10 @@ input::-webkit-input-placeholder {
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">LOGO ICON SPEEDSHOP</h1>
-	               		<h2 class="text-center"><strong>DAFTAR DI ICON SPEEDSHOP</strong></h2>
+	               		<h1 class="title">Icon Speedshop</h1>
+	               		<h2 class="text-center"><strong></strong></h2>
 	               		<p class="text-center unf-black2-text fs-15">
-                        Sudah punya akun Icon Speedshop? Masuk <a href="/login?state=eyJyZWYiOiJodHRwczovL3d3dy50b2tvcGVkaWEuY29tLz9nY2xpZD1FQUlhSVFvYkNoTUkxODdobzRmTDFnSVZUSlZvQ2gyaG5ReFFFQUFZQVNBQUVnSTRmZkRfQndFXHUwMDI2Z2Nsc3JjPWF3LmRzIiwidXVpZCI6IjVjZWRlNGYxLTllYWItNGZjMy1hNjYzLTRmMjU2MTMyZjdmNyJ9" class="green underline">di sini</a>
+                        No account yet? Sign Up <a href="{{ url('daftar')}}" class="green underline">Here</a>
                     </p>
                 	</br>
 	               	</div>
@@ -122,7 +122,7 @@ input::-webkit-input-placeholder {
 				                </button>
 				             </div>
 						</div>
-
+				
 					{!! Form::close() !!}
           <!--Flash Session message-->
               <div class="row">

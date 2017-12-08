@@ -10,14 +10,14 @@
        <div class="col-md-5 grid-single">
            <div class="flexslider">
              <ul class="slides">
-             <li data-thumb="front/images/sampel.jpg">
-               <div class="thumb-image"> <img src="front/images/sampel.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="front/images/{{$products[0]->image}}">
+               <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
-             <li data-thumb="front/images/sampel.jpg">
-                <div class="thumb-image"> <img src="front/images/sampel.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="front/images/{{$products[0]->image}}">
+                <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
-             <li data-thumb="front/images/sampel.jpg">
-                <div class="thumb-image"> <img src="front/images/sampel.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="front/images/{{$products[0]->image}}">
+                <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
              </ul>
            </div>
@@ -43,13 +43,21 @@
          <div class="details-left-info simpleCart_shelfItem">
            {!! Form::open(['route'=>'single.store', 'role'=>'form', 'class'=>'', 'id'=>'form-create-family']) !!}
            <h3>{{ $p }}</h3>
-           <p class="availability">Availability: <span class="color">In stock</span></p>
+           <p class="availability">Availability: <span class="color">
+            @if($products[0]->stock > 0)
+            In stock
+            @else
+            No stock
+            @endif
+          </span></p>
            <div class="price_single">
-             <span class="actual item_price">Rp {{ number_format($products[0]->amount) }}</span>
+             <span class="actual item_price">IDR {{ number_format($products[0]->amount) }}</span>
            </div>
            <h2 class="quick">Quick Overview</h2>
-           <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
-             <h3>available Colors</h3>
+           <p class="quick_desc">
+             {{ $products[0]->description }}
+           </p>
+             <!-- <h3>available Colors</h3>
            <ul class="product-colors">
              <li><a class="color1" href="#"><span> </span></a></li>
              <li><a class="color2" href="#"><span> </span></a></li>
@@ -59,7 +67,7 @@
              <li><a class="color6" href="#"><span> </span></a></li>
              <li><a class="color7" href="#"><span> </span></a></li>
              <li><a class="color8" href="#"><span> </span></a></li>
-           </ul>
+           </ul> -->
            <div class="quantity_box">
                <span>Quantity:</span>
              <div class="product-qty">
@@ -74,7 +82,9 @@
          <div class="clearfix"> </div>
        <div class="single-but item_add">
          <input type="hidden" name="product_id" value="{{ $products[0]->id }}">
+         <input type="hidden" name="stock" value="{{ $products[0]->stock }}">
          <input type="submit" value="add to cart"/>
+         
        </div>
        {!! Form::close() !!}
      </div>
@@ -152,7 +162,7 @@
    </div>
    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
      <div class="panel-body">
-       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+       {{ $products[0]->description }}
      </div>
    </div>
  </div>
@@ -166,7 +176,7 @@
    </div>
    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
      <div class="panel-body">
-       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+       
      </div>
    </div>
  </div>
@@ -174,13 +184,13 @@
    <div class="panel-heading" role="tab" id="headingThree">
      <h4 class="panel-title">
        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-         reviews(5)
+         reviews(0)
        </a>
      </h4>
    </div>
    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
      <div class="panel-body">
-       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+       
      </div>
    </div>
  </div>
@@ -194,7 +204,7 @@
    </div>
    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
      <div class="panel-body">
-       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+       
      </div>
    </div>
  </div>
@@ -301,7 +311,7 @@
           </div>
           <div class="row">
               <div class="col-md-2">
-                <img src="front/images/sampel.jpg" alt=""/ width="100%" height="100%">
+                <img src="front/images/{{$products[0]->image}}" alt=""/ width="100%" height="100%">
               </div>
               <div class="col-md-6">
                 <span style="font-size:12px">{{ $p }}</span>
@@ -339,6 +349,26 @@
   </div>
 </div>
 <!-- End modal cart message -->
+
+<!-- Modal cart message-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalNotStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry this products not stock</h5>
+        <div class="close1"></div>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End modal cart message -->
 @endsection
 
 @section('additional_scripts')
@@ -348,6 +378,8 @@
     @if(Session::has('cartMessage'))
      @if(Session::get('cartMessage') == 1)
      $('#exampleModal').modal('show');
+     @else
+     $('#exampleModalNotStock').modal('show');
      @endif
     @endif
     var harga = $('#harga_barang').val();

@@ -57,8 +57,8 @@ class SDaftarController extends Controller
         $customer->creator = 0;
         $customer->deleted = 0;
         $customer->save();
-        return redirect('speedshop')
-            ->with('successMessage', 'Unit has been added');
+        return redirect('masuk')
+            ->with('successMessage', 'Registration succes');
     }
 
     /**

@@ -1,5 +1,5 @@
 <!--start-footer-->
-   <div class="footer">
+   <!-- <div class="footer">
    <div class="container">
   <div class="footer-top">
     <div class="col-md-2 footer-left">
@@ -53,7 +53,7 @@
       </ul>
     </div>
     <div class="clearfix"> </div>
-  </div>
+  </div> -->
 
 </div>
 </div>
@@ -65,7 +65,7 @@
 <!--/start-copyright-->
 <div class="copy">
 <div class="container">
-  <p>&copy; 2017 Speed Shop. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+  <p>&copy; 2017 Icon SpeedShop. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
 </div>
 </div>
 <!--//end-copyright-->

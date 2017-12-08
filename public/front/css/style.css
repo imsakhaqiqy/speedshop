@@ -616,7 +616,7 @@ figure.effect-bubba p {
 }
 /*--middle--*/
 .middle {
-    background: url(../images/middle.jpg) no-repeat;
+    background: url(../images/shockbreakerohlins.jpg) no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
 	-o-background-size: cover;
@@ -2031,7 +2031,7 @@ margin:0;
     font-size: 1.1em;
 	}
 	.middle {
-		background: url(../images/middle.jpg) no-repeat;
+		background: url(../images/shockbreakerohlins.jpg) no-repeat;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;
@@ -2118,7 +2118,7 @@ margin:0;
     font-size: 1.6em;
 	}
 	.middle {
-		background: url(../images/middle.jpg) no-repeat;
+		background: url(../images/shockbreakerohlins.jpg) no-repeat;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;
@@ -2292,8 +2292,7 @@ margin:0;
 	.recommand-section {
 		padding: 3em 0 0 0;
 	}
-	.tag-wrapper h3 {
-		font-size: 0.9em;
+	.tagfont-size: 0.9em;
 	}
 	h3.tittle {
 		font-size: 1.5em;
@@ -2305,7 +2304,6 @@ margin:0;
 		font-size: 1.2em;
 	}
 	.middle {
-		background: url(../images/middle.jpg) no-repeat;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;
@@ -2408,7 +2406,7 @@ margin:0;
 		font-size: 1em;
 	}
 	.middle {
-		background: url(../images/middle.jpg) no-repeat;
+		background: url(../images/shockbreakerohlins.jpg) no-repeat;
 		background-size: cover;
 		-webkit-background-size: cover;
 		-o-background-size: cover;

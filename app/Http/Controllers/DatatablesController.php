@@ -14,6 +14,7 @@ use App\Menu;
 use App\Units;
 use App\Family;
 use App\Product;
+use App\Category;
 
 class DatatablesController extends Controller
 {
@@ -152,6 +153,31 @@ class DatatablesController extends Controller
       return $datatables->make(true);
     }
 
+    public function getCategories(Request $request){
+      \DB::statement(\DB::raw('set @rownum=0'));
+      $categories = Category::with('user')->select([
+        \DB::raw('@rownum := @rownum + 1 AS rownum'),
+        'categories.*'
+      ]);
+      $datatables = Datatables::of($categories)
+      ->editColumn('creator', function($categories){
+        return strtoupper($categories->user->name);
+      })
+      ->addColumn('actions', function($categories){
+        $actions_html ='<a href="'.url('family/'.$categories->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this family">';
+        $actions_html .=    '<i class="fa fa-edit"></i>';
+        $actions_html .='</a>&nbsp;';
+        $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-family" data-id="'.$categories->id.'" data-text="'.$categories->name.'">';
+        $actions_html .=    '<i class="fa fa-trash"></i>';
+        $actions_html .='</button>';
+        return $actions_html;
+      });
+      if($keyword = $request->get('search')['value']){
+          $datatables->filterColumn('rownum', 'whereRaw', '@rownum + 1 like ?', ["%{$keyword}%"]);
+      }
+      return $datatables->make(true);
+    }
+
     public function getProducts(Request $request){
       \DB::statement(\DB::raw('set @rownum=0'));
       $product = Product::with(['family','category','unit','user'])->select([
@@ -185,5 +211,4 @@ class DatatablesController extends Controller
       }
       return $datatables->make(true);
     }
-
 }

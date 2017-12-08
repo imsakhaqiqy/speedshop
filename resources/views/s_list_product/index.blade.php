@@ -5,7 +5,7 @@
  <div class="products">
    <div class="container">
      <div class="products-grids">
-       <div class="col-md-8 products-grid-left">
+       <div class="col-md-12 products-grid-left">
         {{ $products->links() }}
          <div class="products-grid-lft">
            @foreach($products as $product => $value)
@@ -33,7 +33,7 @@
          </div>
 
        </div>
-                 <div class="col-md-4 products-grid-right">
+                 <!-- <div class="col-md-4 products-grid-right">
          <div class="w_sidebar">
            <div class="w_nav1">
              <h4>All</h4>
@@ -90,7 +90,7 @@
              </div>
            </section>
          </div>
-       </div>
+       </div> -->
        <div class="clearfix"></div>
      </div>
    </div>

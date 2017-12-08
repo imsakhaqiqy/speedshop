@@ -20,15 +20,20 @@ class SSingleController extends Controller
      */
     public function index(Request $request)
     {
-        $p = $request->p;
-        $products = \DB::table('products')->where('name',$p)->get();
-        // echo "<pre>";
-        // print_r($category);
-        // echo "</pre>";
-        // exit;
-        return view('single.index')
-          ->with('p',$p)
-          ->with('products',$products);
+        if(Auth::guest()){
+            return redirect('masuk');    
+        }else{
+            $p = $request->p;
+            $products = \DB::table('products')->where('name',$p)->get();
+            // echo "<pre>";
+            // print_r($category);
+            // echo "</pre>";
+            // exit;
+            return view('single.index')
+              ->with('p',$p)
+              ->with('products',$products);    
+            }
+        
     }
 
     /**
@@ -49,7 +54,9 @@ class SSingleController extends Controller
      */
     public function store(Request $request)
     {
-        $products_id = $request->product_id;
+        $stock = $request->stock;
+        if($stock > 0){
+            $products_id = $request->product_id;
         $product = \DB::table('products')->where('id',$products_id)->value('id');
         $quantity = $request->quantity;
         $customer = Auth::user()->id;
@@ -71,9 +78,16 @@ class SSingleController extends Controller
         // print_r($quantity);
         // echo "</pre>";
         // exit;
-        return redirect("single?p=$product_name")
+            return redirect("single?p=$product_name")
           ->with('cartMessage',1)
-          ->with('chart_id',$chart_id);
+          ->with('chart_id',$chart_id);    
+        }else{
+            $products_id = $request->product_id;
+            $product_name = \DB::table('products')->where('id',$products_id)->value('name');
+            return redirect("single?p=$product_name")
+          ->with('cartMessage',2);
+        }
+        
     }
 
     /**

@@ -21,12 +21,16 @@ class SChartController extends Controller
      */
     public function index()
     {
-        $id_customer = \DB::table('customers')->where('id_user',Auth::user()->id)->value('id');
-        $charts = \DB::table('charts')->select('*',\DB::raw('sum(quantity) as quantity'))->where('customer_id',$id_customer)->groupBy('product_id')->get();
-        // echo "<pre>";
-        // print_r($charts);
-        // echo "</pre>";
-        // exit;
+        if(Auth::guest()){
+            $charts = '';
+        }else{
+            $id_customer = \DB::table('customers')->where('id_user',Auth::user()->id)->value('id');
+            $charts = \DB::table('charts')->select('*',\DB::raw('sum(quantity) as quantity'))->where('customer_id',$id_customer)->groupBy('product_id')->get();
+            // echo "<pre>";
+            // print_r($charts);
+            // echo "</pre>";
+            // exit;
+        }
         return view('chart.index')
           ->with('charts',$charts);
     }
