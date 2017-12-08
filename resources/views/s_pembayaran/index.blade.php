@@ -28,11 +28,11 @@ input,p {
 <div class="container">
   <div class="col-md-6">
     <br>
-    <h2>Personal Data</h2>
+    <h2>Data Pribadi</h2>
     <br>
     {!! Form::open(['route'=>'pembayaran.store', 'role'=>'form', 'class'=>'form-horizontal', 'id'=>'form-create-menu']) !!}
             <div class="form-group">
-                <label class="control-label col-sm-2" for="name">Name </label>
+                <label class="control-label col-sm-2" for="name">Nama </label>
                 <div class="col-sm-10">
                 <input id="input_name" type="name" name="name" value="{{ $customer[0]->name }}">
                 </div>
@@ -50,36 +50,36 @@ input,p {
                 </div>
             </div>
             <br>
-            <h2>Delivery Address</h2>
+            <h2>Alamat Pengiriman</h2>
             <br>
 
             <div class="form-group">
               <div class="col-sm-10">
-              <textarea class="form-control" name="address" rows="5" id="comment" required=""></textarea>
+              <textarea class="form-control" name="address" rows="5" id="comment"></textarea>
               </div>
             </div>
             <br>
 
-            <h2 class="">Delivery Method</h2>
+            <h2 class="">Metode Pengiriman</h2>
 
             <div id="form-row-shipping_value_wrapper" class="sirclo-form-row">
               <div id="form-row-shipping_value" class="sirclo-form-row">
               <div class="sirclo-form-input radio">
-                <div class="radio"><input value="jne" name="delivery_method" type="radio" id="jne" required="">JNE</div>
-                <div class="radio"><input value="j&t" name="delivery_method" type="radio" id="jnt" required="">J&amp;T</div>
-                <div class="radio"><input value="gojek" name="delivery_method" type="radio" id="gojek" required="">GOJEK</div>
+                <div class="radio"><input value="jne" name="delivery_method" type="radio" id="jne">JNE</div>
+                <div class="radio"><input value="j&t" name="delivery_method" type="radio" id="jnt">J&amp;T</div>
+                <div class="radio"><input value="gojek" name="delivery_method" type="radio" id="gojek">GOJEK</div>
               </div>
               </div>
             </div>
             <br>
 
-            <h2 class="">Payment Method</h2>
+            <h2 class="">Metode Pembayaran</h2>
 
             <div id="form-row-payment_method" class="sirclo-form-row">
               <div class="sirclo-form-input radio">
-                <div class="radio"><input value="mandiri" name="payment_method" type="radio" required="">Bank Transfer Mandiri</div>
-                <div class="radio"><input value="bca" name="payment_method" type="radio" required="">Bank Transfer BCA</div>
-                <div class="radio"><input value="bri" name="payment_method" type="radio" required="">Bank Transfer BRI</div>
+                <div class="radio"><input value="mandiri" name="payment_method" type="radio">Bank Transfer Mandiri</div>
+                <div class="radio"><input value="bca" name="payment_method" type="radio">Bank Transfer BCA</div>
+                <div class="radio"><input value="bri" name="payment_method" type="radio">Bank Transfer BRI</div>
               </div>
             </div>
             <br>
@@ -107,7 +107,7 @@ input,p {
   <div class="col-md-6">
     <br>
     <div data-spy="affix" data-offset-top="0">
-    <h2>Order Summary</h2>
+    <h2>Ringkasan Pesanan</h2>
     <br>
     <div class="table-responsive">
       <table class="table">
@@ -120,9 +120,6 @@ input,p {
           </tr>
         </thead>
         <tbody>
-          <?php 
-          $sum_all = 0;
-          ?>
           @foreach($product_arr as $product)
           <script>$(document).ready(function(c) {
             $('.cl').on('click', function(c){
@@ -137,29 +134,22 @@ input,p {
                <p>{{ \DB::table('products')->where('id',$product['product_id'])->value('name') }}</p>
                <input type="hidden" name="product_id[]" value="{{ $product['product_id'] }}">
              </td>
-             <td><p>IDR <span class="sum_price_class">{{\DB::table('products')->where('id',$product['product_id'])->value('amount') }}
-             </span>
-             </p>
-             </td>
+             <td><p class="sum_price_class">{{ \DB::table('products')->where('id',$product['product_id'])->value('amount') }}</p></td>
              <td>
                <p><input id="quantity{{ $product['product_id'] }}" type="number" min="1" max="100" value="{{ $product['quantity']}}" name="quantity[]"></p>
              </td>
              <td>
               <input id="price{{ $product['product_id'] }}" name="price_per_item[]" type="hidden" value="{{ \DB::table('products')->where('id',$product['product_id'])->value('amount') }}">
-               <p id="sum_price{{ $product['product_id'] }}">IDR <span class="sum_price_class">{{ \DB::table('products')->where('id',$product['product_id'])->value('amount')*$product['quantity'] }}
-               </span>
-               </p>
-              </td>
-               <?php $sum_all += \DB::table('products')->where('id',$product['product_id'])->value('amount')*$product['quantity']; ?>
+               <p id="sum_price{{ $product['product_id'] }}" class="sum_price_class">{{ \DB::table('products')->where('id',$product['product_id'])->value('amount')*$product['quantity'] }}</p></td>
            </tr>
           @endforeach
         </tbody>
         <tfoot>
           <tr>
             <td>Postal Fee</td>
-            <td id="postal_fee">IDR 0.00</td>
+            <td id="postal_fee"></td>
             <td>Total</td>
-            <td>IDR <span id="total_harga">{{ $sum_all }}</span></td>
+            <td>Harga</td>
           </tr>
         </tfoot>
       </table>
@@ -168,7 +158,6 @@ input,p {
   </div>
  {!! Form::close() !!}
 </div>
-<br>
 @endsection
 
 @section('additional_scripts')
@@ -186,20 +175,16 @@ input,p {
       $('.copy').hide();
 
         $('#jne').on('click',function(){
-          $('#postal_fee').text('IDR 9.000,00');
+          $('#postal_fee').text('RP 9.000,00');
         })
         $('#jnt').on('click',function(){
-          $('#postal_fee').text('IDR 10.000,00');
+          $('#postal_fee').text('RP 10.000,00');
         })
         $('#gojek').on('click',function(){
-          $('#postal_fee').text('IDR 15.000,00');
+          $('#postal_fee').text('RP 15.000,00');
         })
 
         $(".sum_price_class").autoNumeric('init',{
-          aSep:',',
-          aDec:'.'
-        });
-        $("#total_harga").autoNumeric('init',{
           aSep:',',
           aDec:'.'
         });
@@ -208,12 +193,10 @@ input,p {
             var quantity = $("#quantity{{$product['product_id']}}").val();
             var price = $("#price{{$product['product_id']}}").val();
             var sum = quantity*price;
-            var sum_all = sum;
             $("#sum_price{{$product['product_id']}}").text(sum).autoNumeric('update',{
               aSep:',',
               aDec:'.'
             });
-            $("#total_harga").text(sum_all);
           })
         @endforeach
 
