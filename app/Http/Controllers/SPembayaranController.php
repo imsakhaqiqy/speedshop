@@ -121,13 +121,13 @@ class SPembayaranController extends Controller
           'updated_at'=>date('Y-m-d h:i:s'),
           'deleted'=>0
           ];
+        \DB::table('charts')->where([['product_id',$request->product_id_cart[$key]],['customer_id',$customer_id]])->delete();
       }
 
       //
       $user =1;
       Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
-
+            $m->from('cs@iconspeedshop.com', 'Icon SpeedShop');
             $m->to('imsakhaqiqy24@gmail.com', '')->subject('Your Order!');
         });
       return redirect('speedshop');

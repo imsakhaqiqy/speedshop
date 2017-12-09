@@ -11,13 +11,13 @@
 |
 */
 Route::resource('category', 'CategoryController');
-// Route::get('send_test_email',function(){
-//     Mail::raw('Sending emails with Mailgun and laravel is easy!', function($message){
-//       $message->subject('Mailgun');
-//       $message->from('no-reply@iconspeedshop.com','Icon SpeedShop');
-//       $message->to('imsakhaqiqy24@gmail.com');
-//     });
-//});
+Route::get('send_test_email',function(){
+    Mail::raw('Sending emails with Mailgun and laravel is easy!', function($message){
+      $message->subject('Mailgun');
+      $message->from('no-reply@iconspeedshop.com','Icon SpeedShop');
+      $message->to('imsakhaqiqy24@gmail.com');
+    });
+});
 Route::resource('list-product','ListProductController');
 
 Route::resource('konfirmasipembayaran','S_KonfirmasiPembayaran');

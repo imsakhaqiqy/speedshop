@@ -68,7 +68,17 @@
                   <li><a href="{{ url('masuk')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 									@else
                       <li>
-                        <a class="navbar-brand" href="{{ url('konfirmasipembayaran') }}">Confirmation</a>
+                        <a class="navbar-brand" href="{{ url('konfirmasipembayaran') }}">
+                          Confirmation
+                          <span id="simpleCart_quantity" class="label label-default">
+          									<?php
+          									$customer_id = \DB::table('customers')->where('id_user',Auth::user()->id)->value('id');
+          									$sum = \DB::table('orders')->where('customer_id',$customer_id)->get();
+          									echo count($sum);
+          									?>
+
+          								</span>
+                        </a>
                       </li>
 											<li class="dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

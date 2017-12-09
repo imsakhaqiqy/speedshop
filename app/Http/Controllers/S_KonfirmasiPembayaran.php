@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\ConfirmationPayment;
 
 class S_KonfirmasiPembayaran extends Controller
 {
@@ -36,7 +37,19 @@ class S_KonfirmasiPembayaran extends Controller
      */
     public function store(Request $request)
     {
+        $cPayment = new ConfirmationPayment;
+        $cPayment->order_id = $request->order_id;
+        $cPayment->transfer_date = $request->input_date;
+        $cPayment->transfer_name = $request->name;
+        $cPayment->amount = $request->amount;
+        $cPayment->status = 0;
+        $cPayment->deleted = 0;
+        $cPayment->save();
+        $bank_to = $request->input_bank_to;
+        // if($bank_to == ){
         //
+        // }
+
     }
 
     /**
