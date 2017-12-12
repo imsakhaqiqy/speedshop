@@ -46,6 +46,13 @@ class S_KonfirmasiPembayaran extends Controller
         $cPayment->deleted = 0;
         $cPayment->save();
         $bank_to = $request->input_bank_to;
+        //Send sms with nexmo api
+        // $nexmo = app('Nexmo\Client');
+        // $nexmo->message()->send([
+        //   'to'    =>  '62899710876',
+        //   'from'  =>  'Admin',
+        //   'text'  =>  'Terima kasih sudah berbelanja di Icon SpeedShop',
+        // ]);
         // if($bank_to == ){
         //
         // }

@@ -10,6 +10,7 @@ use Auth;
 use App\User;
 use App\Http\Requests;
 use App\Order;
+use App\Customer;
 
 class SPembayaranController extends Controller
 {
@@ -126,9 +127,17 @@ class SPembayaranController extends Controller
 
       //
       $user =1;
-      Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+      $data_order = Order::findOrFail($order->id);
+      $data_order_detail = $data_order->order_details;
+      $data_customer = Customer::findOrFail($data_order->customer_id);
+      //exit;
+      Mail::send('emails.reminder', ['data_order' =>$data_order,
+      'data_order_detail'=>$data_order_detail,
+      'data_customer'=>$data_customer,
+      'data_address'=>$request->address
+      ], function ($m) use ($user) {
             $m->from('cs@iconspeedshop.com', 'Icon SpeedShop');
-            $m->to('imsakhaqiqy24@gmail.com', '')->subject('Your Order!');
+            $m->to('haqiqy.imsak@gmail.com', '')->subject('Your Order!');
         });
       return redirect('speedshop');
     }
