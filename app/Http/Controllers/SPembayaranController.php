@@ -10,6 +10,7 @@ use Auth;
 use App\User;
 use App\Http\Requests;
 use App\Order;
+use App\Customer;
 
 class SPembayaranController extends Controller
 {
@@ -121,14 +122,22 @@ class SPembayaranController extends Controller
           'updated_at'=>date('Y-m-d h:i:s'),
           'deleted'=>0
           ];
+        \DB::table('charts')->where([['product_id',$request->product_id_cart[$key]],['customer_id',$customer_id]])->delete();
       }
 
       //
       $user =1;
-      Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
-
-            $m->to('imsakhaqiqy24@gmail.com', '')->subject('Your Order!');
+      $data_order = Order::findOrFail($order->id);
+      $data_order_detail = $data_order->order_details;
+      $data_customer = Customer::findOrFail($data_order->customer_id);
+      //exit;
+      Mail::send('emails.reminder', ['data_order' =>$data_order,
+      'data_order_detail'=>$data_order_detail,
+      'data_customer'=>$data_customer,
+      'data_address'=>$request->address
+      ], function ($m) use ($user) {
+            $m->from('cs@iconspeedshop.com', 'Icon SpeedShop');
+            $m->to('haqiqy.imsak@gmail.com', '')->subject('Your Order!');
         });
       return redirect('speedshop');
     }

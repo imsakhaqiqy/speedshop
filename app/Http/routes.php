@@ -10,14 +10,26 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('sms',function(){
+  $nexmo = app('Nexmo\Client');
+  $nexmo->message()->send([
+    'to'=>'6281296864017',
+    'from'=>'ADMIN',
+    'text'=>'KIRIM PESAN DARI LARAVEL DENGAN NEXMO',
+  ]);
+});
+use App\Order;
+use App\Customer;
 Route::resource('category', 'CategoryController');
-// Route::get('send_test_email',function(){
-//     Mail::raw('Sending emails with Mailgun and laravel is easy!', function($message){
-//       $message->subject('Mailgun');
-//       $message->from('no-reply@iconspeedshop.com','Icon SpeedShop');
-//       $message->to('imsakhaqiqy24@gmail.com');
-//     });
-//});
+Route::get('send_test_email',function(){
+    $order = Order::findOrFail(18);
+    $data_customer = Customer::findOrFail($order->customer_id);
+    echo $order;
+    echo "<br>";
+    echo $order->order_details;
+    echo "<br>";
+    echo $data_customer;
+});
 Route::resource('list-product','ListProductController');
 
 Route::resource('konfirmasipembayaran','S_KonfirmasiPembayaran');

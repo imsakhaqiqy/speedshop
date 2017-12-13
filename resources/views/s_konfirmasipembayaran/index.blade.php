@@ -63,39 +63,39 @@ input,p {
       <br>
       <h2>Data Pribadi</h2>
       <br>
-      <form class="form-horizontal" action="" novalidate="novalidate" method="post" enctype="multipart/form-data">
+      {!! Form::open(['route'=>'konfirmasipembayaran.store', 'role'=>'form', 'class'=>'form-horizontal', 'id'=>'form-create-confirmation-payment']) !!}
               <div class="form-group">
-                  <label class="control-label col-md-3" for="email">Order ID </label>
+                  <label class="control-label col-md-3" for="order_id">Order ID </label>
                   <div class="col-sm-4">
-                  <input id="input_email" type="email" name="email" required="" value="">
+                  <input id="input_order_id" type="text" name="order_id" required="" value="">
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="email">Tanggal Transaksi </label>
+                  <label class="control-label col-md-3" for="input_date">Tanggal Transaksi </label>
                   <div class="col-sm-4">
                     <input type='date' class="form-control"/>
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="email">Nama Pengirim </label>
+                  <label class="control-label col-md-3" for="name">Nama Pengirim </label>
                   <div class="col-sm-4">
-                  <input id="input_email" type="email" name="email" required="" value="">
+                  <input id="input_name" type="text" name="name" required="" value="">
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="email">Jumlah Ditransfer </label>
+                  <label class="control-label col-md-3" for="amount">Jumlah Ditransfer </label>
                   <div class="col-sm-4">
-                  <input id="input_email" type="email" name="email" required="" value="">
+                  <input id="input_amount" type="text" name="amount" required="" value="">
                   </div>
               </div>
               <div class="form-group">
                   <label class="control-label col-md-3" for="email">Pembayaran </label>
                   <div class="col-sm-4">
-                    <select name="bank_to" required="required">
+                    <select name="input_bank_to" required="required">
                       <option value="" selected="selected">--Pilih Akun Bank--</option>
-                      <option value="BCA">Mandiri</option>
-                      <option value="BCA">BCA</option>
-                      <option value="BCA">BRI</option>
+                      <option value="mandiri">Mandiri</option>
+                      <option value="bca">BCA</option>
+                      <option value="bri">BRI</option>
                     </select>
                   </div>
               </div>
@@ -110,8 +110,8 @@ input,p {
                   <br>
                   <input type="submit" value="Konfirmasi" class="btn btn-info">
               </div>
-
-      </div>
+    {!! Form::close() !!}
+    </div>
 
 </div>
 <br>

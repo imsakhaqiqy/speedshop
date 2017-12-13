@@ -122,6 +122,9 @@ input,p {
           </tr>
         </thead>
         <tbody>
+          <?php
+          $sum_all = 0;
+          ?>
           @foreach($product_arr as $product)
           <script>$(document).ready(function(c) {
             $('.cl').on('click', function(c){
