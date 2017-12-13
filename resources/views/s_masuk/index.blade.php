@@ -7,23 +7,32 @@
 <!-- Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
 
 <style type="text/css">
 body, html{
      height: 100%;
  	background-repeat: no-repeat;
- 	background-color: #d3d3d3;
- 	font-family: 'Oxygen', sans-serif;
-}
+ 	background-color: #BFBFBF;
 
+}
+.logo1{
+	font-family: 'Audiowide', 'Inconsolata', 'Droid Sans', serif;
+  font-size: 38px;
+  color: #fff;
+}
+.logo2{
+  font-family: 'Courgette';
+	font-size: 35px;
+  color: #F22613;
+}
+.greenunderline{
+	color:#F22613;
+	text-decoration: underline;
+}
 .main{
  	margin: -30px 0 90px;
-}
-
-h1.title {
-	font-size: 50px;
-	font-family: 'Passion One', cursive;
-	font-weight: 400;
 }
 
 hr{
@@ -81,10 +90,10 @@ input::-webkit-input-placeholder {
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">Icon Speedshop</h1>
-	               		<h2 class="text-center"><strong></strong></h2>
+									 <br>
+	               		<h1><span class="logo1">Icon</span><span class="logo2">Speedshop</span></h1>
 	               		<p class="text-center unf-black2-text fs-15">
-                        No account yet? Sign Up <a href="{{ url('daftar')}}" class="green underline">Here</a>
+                        No account yet? Sign Up <a href="{{ url('daftar')}}" class="greenunderline">Here</a>
                     </p>
                 	</br>
 	               	</div>

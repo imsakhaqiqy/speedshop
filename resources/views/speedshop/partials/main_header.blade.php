@@ -21,7 +21,7 @@
 }
 .speedshop{
   font-family: 'Courgette';font-size: 22px;
-  color: #00E640;
+  color: #F22613;
 }
 .cari{
   height: 10px;

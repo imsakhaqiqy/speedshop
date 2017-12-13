@@ -12,20 +12,26 @@
 body, html{
      height: 100%;
  	background-repeat: no-repeat;
- 	background-color: #d3d3d3;
- 	font-family: 'Oxygen', sans-serif;
+ 	background-color: #BFBFBF;
+}
+.logo1{
+	font-family: 'Audiowide', 'Inconsolata', 'Droid Sans', serif;
+  font-size: 38px;
+  color: #fff;
+}
+.logo2{
+  font-family: 'Courgette';
+	font-size: 35px;
+  color: #F22613;
+}
+.greenunderline{
+	color:#F22613;
+	text-decoration: underline;
 }
 
 .main{
  	margin-top:-30px;
 }
-
-h1.title {
-	font-size: 50px;
-	font-family: 'Passion One', cursive;
-	font-weight: 400;
-}
-
 hr{
 	width: 10%;
 	color: #fff;
@@ -81,12 +87,13 @@ input::-webkit-input-placeholder {
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">Icon SpeedShop</h1>
-	               		<h2 class="text-center"><strong>Sign Up Account</strong></h2>
+	               		<h1><span class="logo1">Icon</span><span class="logo2">Speedshop</span></h1>
+										<br>
+	               		<h3 class="text-center">Sign Up Account</h3>
 	               		<p class="text-center unf-black2-text fs-15">
-Already have account? Login <a href="{{ url('masuk') }}" class="green underline">Here</a>
+Already have account? Login <a href="{{ url('masuk') }}" class="greenunderline">Here</a>
                     </p>
-                	</br>
+
 	               	</div>
 	            </div>
 				<div class="main-login main-center">
