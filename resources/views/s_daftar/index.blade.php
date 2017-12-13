@@ -17,7 +17,7 @@ body, html{
 }
 
 .main{
- 	margin-top: 30px;
+ 	margin-top:-30px;
 }
 
 h1.title {
@@ -83,7 +83,7 @@ input::-webkit-input-placeholder {
 	               <div class="panel-title text-center">
 	               		<h1 class="title">Icon SpeedShop</h1>
 	               		<h2 class="text-center"><strong>Sign Up Account</strong></h2>
-	               		<p class="text-center unf-black2-text fs-15">  
+	               		<p class="text-center unf-black2-text fs-15">
 Already have account? Login <a href="{{ url('masuk') }}" class="green underline">Here</a>
                     </p>
                 	</br>
@@ -97,7 +97,7 @@ Already have account? Login <a href="{{ url('masuk') }}" class="green underline"
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name" required/>
 								</div>
 							</div>
 						</div>
@@ -107,7 +107,7 @@ Already have account? Login <a href="{{ url('masuk') }}" class="green underline"
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" required/>
 								</div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@ Already have account? Login <a href="{{ url('masuk') }}" class="green underline"
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-mobile-phone fa-lg" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number"/>
+									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number" required/>
 								</div>
 							</div>
 						</div>
@@ -127,7 +127,7 @@ Already have account? Login <a href="{{ url('masuk') }}" class="green underline"
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" required/>
 								</div>
 							</div>
 						</div>

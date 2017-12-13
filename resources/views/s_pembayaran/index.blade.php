@@ -21,12 +21,11 @@ input,p {
 .radio {
     font-size: 13px;
 }
-.affix{
-
-}
 </style>
 <div class="container">
   <div class="col-md-6">
+    <br>
+    <br>
     <br>
     <h2>Data Pribadi</h2>
     <br>
@@ -101,10 +100,13 @@ input,p {
                 @endforeach
                 <input type="submit" value="Checkout" class="btn btn-info">
             </div>
+            <br>
 
 
 </div>
   <div class="col-md-6">
+    <br>
+    <br>
     <br>
     <div data-spy="affix" data-offset-top="0">
     <h2>Ringkasan Pesanan</h2>

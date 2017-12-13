@@ -11,7 +11,7 @@
 <style type="text/css">
 
 #common-page-header {
-    margin-top: 50px;
+    margin-top: 28px;
     background-color: #f6f6f6;
     height: 130px;
     background-size: cover !important;
@@ -73,7 +73,7 @@ input,p {
               <div class="form-group">
                   <label class="control-label col-md-3" for="email">Tanggal Transaksi </label>
                   <div class="col-sm-4">
-                    <input type='text' class="form-control" id='datepicker' />
+                    <input type='date' class="form-control"/>
                   </div>
               </div>
               <div class="form-group">
@@ -114,8 +114,7 @@ input,p {
       </div>
 
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<br>
 
 
 @endsection

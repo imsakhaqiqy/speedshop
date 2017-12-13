@@ -17,7 +17,7 @@ body, html{
 }
 
 .main{
- 	margin-top: 30px;
+ 	margin: -30px 0 90px;
 }
 
 h1.title {
@@ -122,7 +122,7 @@ input::-webkit-input-placeholder {
 				                </button>
 				             </div>
 						</div>
-				
+
 					{!! Form::close() !!}
           <!--Flash Session message-->
               <div class="row">

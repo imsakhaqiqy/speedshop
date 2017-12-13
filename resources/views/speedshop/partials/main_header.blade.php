@@ -1,14 +1,80 @@
 @section('additional_css')
 
 @endsection
+<link href='https://fonts.googleapis.com/css?family=Rale Way' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
 
 <style type="text/css">
 
+.flipkart-navbar {
+    background-color: #34495E;
+    height: 70px;
+    padding:10px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.icon{
+  font-family: 'Audiowide';font-size: 22px;
+  color: #fff;
+}
+.speedshop{
+  font-family: 'Courgette';font-size: 22px;
+  color: #00E640;
+}
+.cari{
+  height: 10px;
+  width: 20px;
+}
+.tulisan{
+  font-size: 16px;
+  font-family: 'Rale Way';
+  color:#fff;
+}
+
+.tulisan a{
+  color:#fff;
+  font-weight: bold;
+
+}
+.cari{
+  background-color: #293A4A;
+}
+#category{
+    min-width: 160px;
+    margin-top: 9px;
+    padding: 1px 1px 0;
+    background-color: #34495e;
+    overflow:hidden;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+.dropdown-menu > li > a {
+    color: #e1e4e7;
+    border-radius: 4px;
+    padding: 6px 9px;
+  }
+#profil{
+    min-width: 160px;
+    margin-top: 10px;
+    padding: 1px 1px 0;
+    overflow:hidden;
+    background-color:#34495e;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
 #login-dp{
     min-width: 300px;
+    margin-top: 10px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:#ECF0F1;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 #login-dp .help-block{
     font-size:12px
@@ -26,7 +92,7 @@
     width: 49%;
 }
 #login-dp .form-group {
-    margin:5px 5px 10px 5px;
+    margin:5px 5px 10px 10px;
 }
 .btn-fb{
     color: #fff;
@@ -56,30 +122,25 @@
 }
 </style>
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar flipkart-navbar navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
-    <a class="navbar-brand" href="{{ url('speedshop') }}">Icon SpeedShop</a>
+    <a class="navbar-brand" href="{{ url('speedshop') }}"><span class="icon">Icon</span><span class="speedshop">SpeedShop</span></a>
   </div>
     <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-list"></span> Category
+        <li class="dropdown tulisan ">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><span class="glyphicon glyphicon-th-list" ></span> Category
           </a>
             <?php
               $category = \DB::table('families')->get();
 
              ?>
-          <ul class="dropdown-menu list">
+          <ul id="category" class="dropdown-menu menu">
             <?php foreach ($category as $key){?>
-              <li><i aria-hidden="true"></i><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
+              <li><i></i><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
 
           <?php  } ?>
 
-
-
-            <!-- <li><a href="#">Page 1-1</a></li>
-            <li><a href="#">Page 1-2</a></li>
-            <li><a href="#">Page 1-3</a></li> -->
           </ul>
         </li>
       </ul>
@@ -95,7 +156,7 @@
     </div>
     <ul class="nav navbar-nav navbar-right total">
 
-      <li class="total">
+      <li class="total tulisan">
             <a href="{{ url('chart') }}">
               <i class="glyphicon glyphicon-shopping-cart"></i>
 							@if(Auth::guest())
@@ -115,12 +176,12 @@
             </a>
           </li>
 
-              <li>
+              <li class="tulisan">
 									@if (Auth::guest())
                   <a href="{{ url('daftar')}}"><span></span> Sign Up</a>
               </li>
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><b> Login</b></a>
+                    <a href="#" class="dropdown-toggle tulisan" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><b> Login</b></a>
                       <ul id="login-dp" class="dropdown-menu">
                         <li>
 				                    <div class="row">
@@ -152,15 +213,19 @@
                         </ul>
                       </li>
 									@else
-                      <li>
-                        <a class="navbar-brand" href="{{ url('konfirmasipembayaran') }}">Confirmation</a>
-                      </li>
-											<li class="dropdown">
+											<li class="dropdown tulisan">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 															<span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }} <span class="caret"></span>
 													</a>
-                          <ul class="dropdown-menu" role="menu">
-															<li><a href="{{ URL::to('keluar')}}"><i class="glyphicon glyphicon-log-out"></i>Logout</a></li>
+                          <ul id="profil" class="dropdown-menu" role="menu">
+                            <li>
+                              <a href="{{ url('konfirmasipembayaran') }}"><i class="glyphicon glyphicon-check"></i> Confirmation
+                                  <span id="konfirmasi" class="label label-default">0</span>
+                              </a>
+                            </li>
+															<li>
+                                <a href="{{ URL::to('keluar')}}"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+                              </li>
 													</ul>
 											</li>
 									@endif
