@@ -20,9 +20,10 @@ class SHomeController extends Controller
     public function index()
     {
         $hotlist = \DB::table('products')->limit(5)->get();
-        $family = \DB::table('families')->limit(5)->get();
+        $new_arrival = \DB::table('products')->limit(5)->offset(5)->get();
+        $family = \DB::table('families')->get();
         $feature_collection = \DB::table('products')->limit(3)->offset(5)->get();
-        
+
         // echo "<pre>";
         // print_r($family);
         // echo "</pre>";
@@ -30,7 +31,8 @@ class SHomeController extends Controller
         return view('s_home.index')
           ->with('family',$family)
           ->with('hotlist',$hotlist)
-          ->with('feature_collection',$feature_collection);
+          ->with('feature_collection',$feature_collection)
+          ->with('new_arrival',$new_arrival);
     }
 
     /**

@@ -1,8 +1,10 @@
 @extends('speedshop.app')
 
 @section('content')
+
 <!--start-content-->
 <!-- checkout -->
+<div class="cart">
 <div class="cart-items">
  <div class="container">
    @if(Auth::guest())
@@ -37,7 +39,7 @@
               </div>
                <div class="cart-item-info">
               <h3><a href="#"> {{ \DB::table('products')->where('id',$charts[$a]->product_id)->value('name') }} </a></h3>
-              
+
               <ul class="qty">
                 <li><p>Postal fee</p></li>
                 <li></li>
@@ -78,6 +80,7 @@
    {!! Form::close() !!}
    @endif
   </div>
+</div>
 </div>
      <!--//checkout-->
 @endsection

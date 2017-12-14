@@ -15,7 +15,7 @@ class FamiliesTableSeeder extends Seeder
         $families = [
           ['id' => 1, 'name' => 'KNALPOT', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],
           ['id' => 2, 'name' => 'REM', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],
-          ['id' => 3, 'name' => 'MUR BAUT', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],
+          ['id' => 3, 'name' => 'MUR', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],
           ['id' => 4, 'name' => 'BODY', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],
           ['id' => 5, 'name' => 'SHOCKBREAKER', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],
           ['id' => 6, 'name' => 'STANG', 'creator' => 1, 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s'), 'deleted' => 0],

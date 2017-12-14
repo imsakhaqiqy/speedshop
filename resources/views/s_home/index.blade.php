@@ -1,345 +1,219 @@
 @extends('speedshop.app')
 
+<style type="text/css">
+
+
+.home{
+  background-color: #F5F5F5;
+  padding:5px;
+}
+h2{
+  padding: 2px;
+}
+.newarrival{
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.hotlist{
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+</style>
+
 @section('content')
 <!--start-content-->
     <!--start-banner-->
-       <div class="banner">
-         <div class="container">
-           <h2>Hot List</h2>
-           <br>
-              <div class="col-md-3">
-                <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
-                {!! Html::image('front/images/tamengknalpotmio.jpg', '', ['class'=>'img-responsive']) !!}
-                </a>
-                 <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
-                 <h3 class="b-tittle">{{ $hotlist[0]->name }}</h3>
-                 <i class="collection">IDR {{ number_format($hotlist[0]->amount) }}</i>
-                 <i class="glyphicon glyphicon-arrow-right"></i></a>
-              </div>
-
-              <div class="col-md-3">
-                <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
-                  {!! Html::image('front/images/tamengknalpotbeat.jpg', '', ['class'=>'img-responsive']) !!}
-                  </a>
-                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
-                  <h3 class="b-tittle">{{ $hotlist[1]->name }}</h3>
-                  <i class="collection">IDR {{ number_format($hotlist[1]->amount) }}</i>
-                  <i class="glyphicon glyphicon-arrow-right"></i></a>
-              </div>
-
-                <div class="col-md-3">
-                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
-                  {!! Html::image('front/images/corongknalpot.jpg', '', ['class'=>'img-responsive']) !!}
-                  </a>
-                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
-                  <h3 class="b-tittle">{{ $hotlist[2]->name }}</h3>
-                  <i class="collection">IDR {{ number_format($hotlist[2]->amount) }}</i>
-                  <i class="glyphicon glyphicon-arrow-right"></i></a>
-                </div>
-                <div class="col-md-3">
-                  <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
-                  {!! Html::image('front/images/selangrem.jpg', '', ['class'=>'img-responsive']) !!}
-                  </a>
-                    <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
-                    <h3 class="b-tittle">{{ $hotlist[3]->name }}</h3>
-                    <i class="collection">IDR {{ number_format($hotlist[3]->amount) }}</i>
-                    <i class="glyphicon glyphicon-arrow-right"></i>
-                  </a>
-                </div>
-
-
-
-             </div>
-             </div>
-              <div class="clearfix"> </div>
-        
-         <!--/start-fashion-->
-    <!-- <div class="fashion-section">
-     <div class="container">
-         <h3 class="tittle">Category</h3>
-
-       <div class="fashion-info">
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba">
-            {!! Html::image('front/images/tamengknalpotmio2.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $family[0]->name }}</h4>
-              <p class="cart"><a href="single.html">BUY NOW</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba">
-            {!! Html::image('front/images/caliperbrembo.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $family[1]->name }}</h4>
-                <p class="cart"><a href="single.html">BUY NOW</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba">
-            {!! Html::image('front/images/murbaut.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $family[2]->name }}</h4>
-              <p class="cart"><a href="single.html">BUY NOW</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="clearfix"></div>
+<div class="home">
+  <div class="banner">
+    <div class="container newarrival">
+      <h2>New Arrival</h2>
+      <br>
+      <div class="col-md-3">
+        <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[0]->name }}">
+        {!! Html::image('front/images/'.$new_arrival[0]->image, '', ['class'=>'img-responsive']) !!}
+        </a>
+         <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[0]->name }}">
+         <h3 class="b-tittle">{{ $new_arrival[0]->name }}</h3>
+         <i class="collection">IDR {{ number_format($new_arrival[0]->amount) }}</i>
+         <i class="glyphicon glyphicon-arrow-right"></i></a>
       </div>
-    </div>
-  </div> -->
-       <!--//fashion-->
-      <!--/start-latest-->
-    <div class="collection-section">
-     <div class="container">
-         <h3 class="tittle fea">FEATURED COLLECTIONS</h3>
-
-       <div class="fashion-info">
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba" style="">
-            {!! Html::image('front/images/handleremtwotone.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $feature_collection[0]->name }}</h4>
-              <p class="cart"><a href="{{ url('single?p=') }}{{ $feature_collection[0]->name }}">BUY NOW</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba" style="">
-            {!! Html::image('front/images/handleremcrg.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $feature_collection[1]->name }}</h4>
-                <p class="cart"><a href="{{ url('single?p=') }}{{ $feature_collection[1]->name }}">BUY NOW</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba" style="">
-            {!! Html::image('front/images/murasrodabelakangyamaha.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $feature_collection[2]->name }}</h4>
-              <p class="cart"><a href="{{ url('single?p=') }}{{ $feature_collection[2]->name }}">BUY NOW</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="clearfix"></div>
+      <div class="col-md-3">
+        <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[1]->name }}">
+          {!! Html::image('front/images/'.$new_arrival[1]->image, '', ['class'=>'img-responsive']) !!}
+        </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[1]->name }}">
+          <h3 class="b-tittle">{{ $new_arrival[1]->name }}</h3>
+          <i class="collection">IDR {{ number_format($new_arrival[1]->amount) }}</i>
+          <i class="glyphicon glyphicon-arrow-right"></i></a>
       </div>
+      <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[2]->name }}">
+          {!! Html::image('front/images/'.$new_arrival[2]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[2]->name }}">
+          <h3 class="b-tittle">{{ $new_arrival[2]->name }}</h3>
+          <i class="collection">IDR {{ number_format($new_arrival[2]->amount) }}</i>
+          <i class="glyphicon glyphicon-arrow-right"></i></a>
+        </div>
+      <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[3]->name }}">
+          {!! Html::image('front/images/'.$new_arrival[3]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+            <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[3]->name }}">
+            <h3 class="b-tittle">{{ $new_arrival[3]->name }}</h3>
+            <i class="collection">IDR {{ number_format($new_arrival[3]->amount) }}</i>
+            <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
+        </div>
     </div>
   </div>
-       <!--//latest-->
-     <!-- <div class="container">
-        <div class="recommand-section">
-          <div class="recommand-section-head text-center">
-            <h3 class="tittle fea">Recommended Products</h3>
-          </div>
-          <div class="recommand-section-grids">
+</div>
 
-            <div class="standards">
-             <h5>Tags<i class="glyphicon glyphicon-tag"></i></h5>
-            <ul class="selectors_wrapper">
-                <li class="selector active" data-selector="1">Popular</li>
-                <li class="selector" data-selector="2">Sales</li>
-                <li class="selector" data-selector="3">Seller</li>
-                <li class="selector" data-selector="4">Rate</li>
+<div class="home">
+  <div class="banner">
+    <div class="container hotlist">
+      <h2>Hot List</h2>
+      <br>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
+            {!! Html::image('front/images/'.$hotlist[0]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[0]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[0]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+            {!! Html::image('front/images/'.$hotlist[1]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[1]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[1]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+            {!! Html::image('front/images/'.$hotlist[2]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[2]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[2]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+            {!! Html::image('front/images/'.$hotlist[3]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[3]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[3]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="home">
+  <div class="banner">
+    <div class="scroll-slider">
+      <div class="container">
+        <div class="nbs-flexisel-container">
+          <div class="nbs-flexisel-inner">
+            <ul class="flexiselDemo3 nbs-flexisel-ul" style="left: -253.6px; display: block;">
+                <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;">
+                  {!! Html::image('front/images/honda.png', '') !!}
+                </li>
+                <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;">
+                  {!! Html::image('front/images/yamaha.png', '') !!}
+                </li>
+                <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;">
+                  {!! Html::image('front/images/suzuki.png', '') !!}
+                </li>
+                <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;">
+                  {!! Html::image('front/images/kawasaki.jpg', '') !!}
+                </li>
+                <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;">
+                  {!! Html::image('front/images/bajaj.png', '') !!}
+                </li>
             </ul>
+            <div class="nbs-flexisel-nav-left" style="top: 21.5px;"></div>
+            <div class="nbs-flexisel-nav-right" style="top: 21.5px;"></div>
+          </div>
+        </div>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+<script type="text/javascript" src="front/js/jquery.flexisel.js"></script>
 
-            <div class="standard_content">
-              <div class="standard active" data-selector="1">
-              <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html">
-                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
-                  </a>
-                  <div class="r-title">
-                    <h3>Sunny Dress</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-                <div class="atc"><a href="single.html">Shop</a></div>
-                 </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html">
-                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
-                  </a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>White Shirt</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html">
-                    {!! Html::image('front/images/sampel.jpg', '', ['class'=>'img-responsive']) !!}
-                  </a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Puma Shoe</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="clearfix"></div>
-              </div>
-              <div class="standard" data-selector="2">
-                <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Sunny Dress</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>White Shirt</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Puma Shoe</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-              </div>
-              <div class="standard" data-selector="3">
-                    <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Sunny Dress</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>White Shirt</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Puma Shoe</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="clearfix"></div>
-                      </div>
-             <div class="standard" data-selector="4">
-                <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s1.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Sunny Dress</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s3.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>White Shirt</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-            <div class="tag-grid">
-                <div class="tag-wrapper">
-                  <a href="single.html"><img src="images/s2.jpg" class="img-responsive" alt="" /></a>
-                  <div class="atc"><a href="single.html">Shop</a></div>
-                  <div class="r-title">
-                    <h3>Puma Shoe</h3>
-                    <h4>$30</h4>
-                  </div>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          </div>
-        </div> -->
-      </div>
+<script type="text/javascript">
+$(window).load(function() {
+  $(".flexiselDemo3").flexisel({
+      visibleItems: 5,
+      animationSpeed: 1000,
+      autoPlay: true,
+      autoPlaySpeed: 3000,
+      pauseOnHover: true,
+      enableResponsiveBreakpoints: true,
+      responsiveBreakpoints: {
+          portrait: {
+              changePoint:480,
+              visibleItems: 2
+          },
+          landscape: {
+              changePoint:640,
+              visibleItems: 3
+          },
+          tablet: {
+              changePoint:768,
+              visibleItems: 3
+          }
+      }
+  });
+});
+</script>
 
-      <!-- <div class="mid-content">
-            <div class="container">
-        <div class="middle">
-          <div class="mid-top">
-            <h3>Discover a huge assortment of</h3>
-          <p>women`s handbags at the lowest prices</p>
-          </div>
+</div>
+</div>
+ <!-- Modal cart message-->
+ <!-- Modal -->
+ <div class="modal fade" id="modalOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Your order successfully, please check email to view your order !</h5>
+         <div class="close1"></div>
        </div>
-         </div>
-     </div> -->
-      <!--start-bottom-->
-       <!--start-image-cursuals-->
-                  <div class="scroll-slider">
-                    <div class="container">
-              <div class="nbs-flexisel-container"><div class="nbs-flexisel-inner"><ul class="flexiselDemo3 nbs-flexisel-ul" style="left: -253.6px; display: block;">
-              <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c3.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c4.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c1.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c2.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c3.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c4.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c1.png" alt=""/></li><li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="images/c2.png" alt=""/></li></ul><div class="nbs-flexisel-nav-left" style="top: 21.5px;"></div><div class="nbs-flexisel-nav-right" style="top: 21.5px;"></div></div></div>
-              <div class="clearfix"> </div>
-              <!--start-image-->
-                <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-                <!--//end-->
-                <script type="text/javascript">
-                $(window).load(function() {
-                    $(".flexiselDemo3").flexisel({
-                        visibleItems: 5,
-                        animationSpeed: 1000,
-                        autoPlay: true,
-                        autoPlaySpeed: 3000,
-                        pauseOnHover: true,
-                        enableResponsiveBreakpoints: true,
-                        responsiveBreakpoints: {
-                            portrait: {
-                                changePoint:480,
-                                visibleItems: 2
-                            },
-                            landscape: {
-                                changePoint:640,
-                                visibleItems: 3
-                            },
-                            tablet: {
-                                changePoint:768,
-                                visibleItems: 3
-                            }
-                        }
-                    });
-                });
-                </script>
-            <!---->
-          </div>
-      </div>
- <!--//end-bottom-->
+       <div class="modal-body">
 
+       </div>
+       <div class="modal-footer">
+
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- End modal cart message -->
+@endsection
+
+@section('additional_scripts')
+{!! Html::script('front/js/autoNumeric.js') !!}
+<script type="text/javascript">
+  $(document).ready(function() {
+    @if(Session::has('successOrder'))
+     @if(Session::get('successOrder') == 1)
+     $('#modalOrder').modal('show');
+     @endif
+    @endif
+  });
+</script>
 @endsection
