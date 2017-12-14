@@ -15,6 +15,11 @@
     -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
+.xs{
+  width: 90%;
+  height: 28px;
+  position: relative;
+}
 .icon{
   font-family: 'Audiowide';font-size: 22px;
   color: #fff;
@@ -23,23 +28,19 @@
   font-family: 'Courgette';font-size: 22px;
   color: #F22613;
 }
-.cari{
-  height: 10px;
-  width: 20px;
-}
 .tulisan{
   font-size: 16px;
   font-family: 'Rale Way';
   color:#fff;
 }
-
 .tulisan a{
   color:#fff;
   font-weight: bold;
 
 }
-.cari{
-  background-color: #293A4A;
+.dmc{
+  font-size: 12px;
+  font-family: 'Rale Way';
 }
 #category{
     min-width: 160px;
@@ -128,31 +129,32 @@
     <a class="navbar-brand" href="{{ url('speedshop') }}"><span class="icon">Icon</span><span class="speedshop">SpeedShop</span></a>
   </div>
     <ul class="nav navbar-nav">
-        <li class="dropdown tulisan ">
+        <li class="dropdown tulisan">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><span class="glyphicon glyphicon-th-list" ></span> Category
           </a>
             <?php
               $category = \DB::table('families')->get();
 
              ?>
-          <ul id="category" class="dropdown-menu menu">
+          <ul id="category" class="dropdown-menu dmc">
             <?php foreach ($category as $key){?>
-              <li><i></i><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
+              <li><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
 
           <?php  } ?>
 
           </ul>
         </li>
       </ul>
-    <div class="col-sm-6 col-md-6">
+    <div class="col-sm-7 col-md-7">
         <form class="navbar-form" role="search" action="{{ url('list-product') }}">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Product" name="q">
-            <div class="input-group-btn">
+            <input type="text" class="form-control xs" placeholder="Search Product" name="q">
+            <div class="input-group-btn xss">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
         </form>
+        <div class="clearfix"></div>
     </div>
     <ul class="nav navbar-nav navbar-right total">
 
