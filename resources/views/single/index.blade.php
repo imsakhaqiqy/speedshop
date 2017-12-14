@@ -84,7 +84,7 @@
          <input type="hidden" name="product_id" value="{{ $products[0]->id }}">
          <input type="hidden" name="stock" value="{{ $products[0]->stock }}">
          <input type="submit" value="add to cart"/>
-         
+
        </div>
        {!! Form::close() !!}
      </div>
@@ -176,7 +176,7 @@
    </div>
    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
      <div class="panel-body">
-       
+
      </div>
    </div>
  </div>
@@ -190,7 +190,7 @@
    </div>
    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
      <div class="panel-body">
-       
+
      </div>
    </div>
  </div>
@@ -204,7 +204,7 @@
    </div>
    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
      <div class="panel-body">
-       
+
      </div>
    </div>
  </div>
@@ -297,7 +297,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Keranjang Belanja</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Shopping cart</h5>
         <div class="close1"></div>
       </div>
       <div class="modal-body">
@@ -305,7 +305,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="alert alert-success" role="alert">
-                <p style="font-size:10px">{{ $p }} telah ditambahkan ke Keranjang Belanja</p>
+                <p style="font-size:10px">{{ $p }} has been added to the shopping cart</p>
               </div>
             </div>
           </div>
@@ -328,12 +328,12 @@
             <div class="col-md-12">
               <div class="delivery">
                 <input type="hidden" id="harga_barang" value="{{ $products[0]->amount }}">
-                <p>Harga barang : {{ number_format($products[0]->amount) }}</p>
+                <p>Price : IDR {{ number_format($products[0]->amount) }}</p>
                 <br>
-                <p>Biaya kirim : <i>Belum termasuk</i></p>
+                <p>Shipping cost : <i>Not included</i></p>
                 <br>
-                <p>Total harga : @if(Session::has('chart_id'))
-                 &nbsp;<span id="total_harga">{{ $products[0]->amount }}</span>
+                <p>Amount : @if(Session::has('chart_id'))
+                 &nbsp;IDR&nbsp;<span id="total_harga">{{ $products[0]->amount }}</span>
                 @endif
                 </p>
               </div>
@@ -342,8 +342,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a href="{{ url('chart') }}" class="btn btn-danger">Lihat Keranjang</a>
-        <button type="button" class="btn btn-primary">Lanjut ke Pembayaran</button>
+        <a href="{{ url('chart') }}" class="btn btn-danger">To cart</a>
+        <!-- <button type="button" class="btn btn-primary">To payment</button> -->
       </div>
     </div>
   </div>
@@ -360,10 +360,10 @@
         <div class="close1"></div>
       </div>
       <div class="modal-body">
-        
+
       </div>
       <div class="modal-footer">
-        
+
       </div>
     </div>
   </div>

@@ -13,14 +13,22 @@ class ListProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = \DB::table('products')->paginate(9);
+        $q = $request->q;
+        if($q == ""){
+          $products = \DB::table('products')->paginate(9);
+        }else{
+          $products = \DB::table('products')->where('name','like',"%$q%")->paginate(9);
+        }
+
         // echo "<pre>";
         // print_r($products);
         // echo"</pre>";
+        // exit;
         return view('s_list_product.index')
-          ->with('products',$products);
+          ->with('products',$products)
+          ->with('q',$q);
     }
 
     /**

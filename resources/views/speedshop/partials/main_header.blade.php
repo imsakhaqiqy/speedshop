@@ -22,6 +22,7 @@
 .speedshop{
   font-family: 'Courgette';font-size: 22px;
   color: #F22613;
+
 }
 .cari{
   height: 10px;
@@ -137,7 +138,7 @@
              ?>
           <ul id="category" class="dropdown-menu menu">
             <?php foreach ($category as $key){?>
-              <li><i></i><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
+              <li><i></i><a href="{{url('list-product?q=')}}{{$key->name}}"><?php echo $key->name;?></a></li>
 
           <?php  } ?>
 
@@ -145,9 +146,19 @@
         </li>
       </ul>
     <div class="col-sm-6 col-md-6">
-        <form class="navbar-form" role="search" action="{{ url('list-product') }}">
+        <form class="navbar-form" role="search" action="{{ url('list-product?q=') }}">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Product" name="q">
+          <?php
+          if(isset($q)){
+          ?>
+            <input type="text" class="form-control" placeholder="Search Product" name="q" value="{{ $q }}">
+          <?php
+          }else{
+          ?>
+          <input type="text" class="form-control" placeholder="Search Product" name="q" value="">
+          <?php
+          }
+          ?>
             <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>

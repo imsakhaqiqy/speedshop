@@ -43,55 +43,51 @@ input,p {
 
 </style>
 
-<div class="container" id="common-page-header">
-        <br>
-        <br>
-        <h1>Konfirmasi Pembayaran</h1>
-</div>
-
 <div class="container" id="common-page-content">
+    <br>
+    <h1>Payment Confirmation</h1>
     <div id="payment-notif-form" class="wrapper">
-        <p></p><p>Setelah transfer, jangan lupa langsung konfirmasi ya bosku.<br><br>Orderan akan otomatis batal apabila tidak dilakukan transfer dari 24 jam.<br><br></p>
+        <p><span style="color:red">Note :</span> After the transfer, do not forget direct confirmation.</p>
+        <p>Order will be automatically canceled if no transfer from 24 hours.</p>
         <form id="form_payment" method="post" enctype="multipart/form-data">
         </form><ul>
-
         </ul>
         <p></p>
     </div>
 
     <div class="col-md-6">
       <br>
-      <h2>Data Pribadi</h2>
+      <h2>Personal Data</h2>
       <br>
       {!! Form::open(['route'=>'konfirmasipembayaran.store', 'role'=>'form', 'class'=>'form-horizontal', 'id'=>'form-create-confirmation-payment']) !!}
               <div class="form-group">
                   <label class="control-label col-md-3" for="order_id">Order ID </label>
                   <div class="col-sm-4">
-                  <input id="input_order_id" type="text" name="order_id" required="" value="">
+                  <input id="input_order_id" type="text" name="order_id" required="" value="" class="form-control">
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="input_date">Tanggal Transaksi </label>
+                  <label class="control-label col-md-3" for="input_date">Transfer Date</label>
                   <div class="col-sm-4">
                     <input type='date' class="form-control"/>
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="name">Nama Pengirim </label>
+                  <label class="control-label col-md-3" for="name">Transfer Name</label>
                   <div class="col-sm-4">
-                  <input id="input_name" type="text" name="name" required="" value="">
+                  <input id="input_name" type="text" name="name" required="" value="" class="form-control">
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="amount">Jumlah Ditransfer </label>
+                  <label class="control-label col-md-3" for="amount">Transfer Amount</label>
                   <div class="col-sm-4">
-                  <input id="input_amount" type="text" name="amount" required="" value="">
+                  <input id="input_amount" type="text" name="amount" required="" value="" class="form-control">
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-md-3" for="email">Pembayaran </label>
+                  <label class="control-label col-md-3" for="email">Bank Name</label>
                   <div class="col-sm-4">
-                    <select name="input_bank_to" required="required">
+                    <select name="input_bank_to" required="required" class="form-control">
                       <option value="" selected="selected">--Pilih Akun Bank--</option>
                       <option value="mandiri">Mandiri</option>
                       <option value="bca">BCA</option>
@@ -101,8 +97,8 @@ input,p {
               </div>
               <div class="form-group">
                   <label class="control-label col-md-3" for="email">Email </label>
-                  <div class="col-sm-4">
-                  <input id="input_email" type="email" name="email" required="" value="">
+                  <div class="col-sm-5">
+                  <input id="input_email" type="email" name="email" required="" value="{{ Auth::user()->email }}" class="form-control">
                   </div>
               </div>
               <div id="form-row-" class="sirclo-form-row">

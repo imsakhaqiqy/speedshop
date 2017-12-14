@@ -15,7 +15,9 @@ body, html{
      height: 100%;
  	background-repeat: no-repeat;
  	background-color: #BFBFBF;
-
+}
+.main{
+ 	margin: -30px 0 90px;
 }
 .logo1{
 	font-family: 'Audiowide', 'Inconsolata', 'Droid Sans', serif;

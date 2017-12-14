@@ -128,36 +128,51 @@ h2{
      <div class="container">
          <h3 class="tittle fea">CATEGORY</h3>
 
-       <div class="fashion-info">
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba" style="">
-            {!! Html::image('front/images/handleremtwotone.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $feature_collection[0]->name }}</h4>
-              <p class="cart"><a href="{{ url('single?p=') }}{{ $feature_collection[0]->name }}">BUY NOW</a></p>
-            </figcaption>
-          </figure>
+<div class="home">
+  <div class="banner">
+    <div class="container hotlist">
+      <h2>Hot List</h2>
+      <br>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
+            {!! Html::image('front/images/'.$hotlist[0]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[0]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[0]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
         </div>
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba" style="">
-            {!! Html::image('front/images/handleremcrg.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $feature_collection[1]->name }}</h4>
-                <p class="cart"><a href="{{ url('single?p=') }}{{ $feature_collection[1]->name }}">BUY NOW</a></p>
-            </figcaption>
-          </figure>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+            {!! Html::image('front/images/'.$hotlist[1]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[1]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[1]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
         </div>
-        <div class="col-md-4 fashion-grids">
-          <figure class="effect-bubba" style="">
-            {!! Html::image('front/images/murasrodabelakangyamaha.jpg', '', ['class'=>'']) !!}
-            <figcaption>
-              <h4>{{ $feature_collection[2]->name }}</h4>
-              <p class="cart"><a href="{{ url('single?p=') }}{{ $feature_collection[2]->name }}">BUY NOW</a></p>
-            </figcaption>
-          </figure>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+            {!! Html::image('front/images/'.$hotlist[2]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[2]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[2]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-      </div>
+        <div class="col-md-3">
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+            {!! Html::image('front/images/'.$hotlist[3]->image, '', ['class'=>'img-responsive']) !!}
+          </a>
+          <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
+            <h3 class="b-tittle">{{ $hotlist[3]->name }}</h3>
+              <i class="collection">IDR {{ number_format($hotlist[3]->amount) }}</i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+          </a>
+        </div>
     </div>
     </div>
 
@@ -202,4 +217,15 @@ h2{
       </div>-->
  <!--//end-bottom-->
 
+@section('additional_scripts')
+{!! Html::script('front/js/autoNumeric.js') !!}
+<script type="text/javascript">
+  $(document).ready(function() {
+    @if(Session::has('successOrder'))
+     @if(Session::get('successOrder') == 1)
+     $('#modalOrder').modal('show');
+     @endif
+    @endif
+  });
+</script>
 @endsection

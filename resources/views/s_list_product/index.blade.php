@@ -12,7 +12,7 @@
            <div class="products-grd">
              <div class="p-one simpleCart_shelfItem prd">
                <a href="{{url('single?p=')}}{{$value->name}}">
-                   <img src="front/images/tamengknalpotmio.jpg" alt="" class="img-responsive" />
+                   <img src="front/images/{{$value->image}}" alt="" class="img-responsive" />
                </a>
 
                <p><a class="item_add" href="{{url('single?p=')}}{{$value->name}}">

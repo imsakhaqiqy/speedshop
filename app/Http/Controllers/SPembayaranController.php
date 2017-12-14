@@ -139,7 +139,9 @@ class SPembayaranController extends Controller
             $m->from('cs@iconspeedshop.com', 'Icon SpeedShop');
             $m->to('haqiqy.imsak@gmail.com', '')->subject('Your Order!');
         });
-      return redirect('speedshop');
+      $successOrder = 1;
+      return redirect('speedshop')
+        ->with('successOrder',$successOrder);
     }
 
     /**
