@@ -16,8 +16,6 @@
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 .xs{
-  width: 90%;
-  height: 28px;
   position: relative;
 }
 .icon{
@@ -39,7 +37,7 @@
 
 }
 .dmc{
-  font-size: 12px;
+  font-size: 11px;
   font-family: 'Rale Way';
 }
 #category{
@@ -138,7 +136,7 @@
              ?>
           <ul id="category" class="dropdown-menu dmc">
             <?php foreach ($category as $key){?>
-              <li><a href="{{url('list-product')}}"><?php echo $key->name;?></a></li>
+              <li><i></i><a href="{{url('list-product?q=')}}{{$key->name}}"><?php echo $key->name;?></a></li>
 
           <?php  } ?>
 
@@ -146,10 +144,20 @@
         </li>
       </ul>
     <div class="col-sm-7 col-md-7">
-        <form class="navbar-form" role="search" action="{{ url('list-product') }}">
+        <form class="navbar-form" role="search" action="{{ url('list-product?q=') }}">
         <div class="input-group">
-            <input type="text" class="form-control xs" placeholder="Search Product" name="q">
-            <div class="input-group-btn xss">
+          <?php
+          if(isset($q)){
+          ?>
+            <input type="text" class="form-control" placeholder="Search Product" name="q" value="{{ $q }}">
+          <?php
+          }else{
+          ?>
+          <input type="text" class="form-control" placeholder="Search Product" name="q" value="">
+          <?php
+          }
+          ?>
+            <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>

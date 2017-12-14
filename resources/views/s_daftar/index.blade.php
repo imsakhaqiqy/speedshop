@@ -36,21 +36,17 @@ hr{
 	width: 10%;
 	color: #fff;
 }
-
 .form-group{
 	margin-bottom: 15px;
 }
-
 label{
 	margin-bottom: 15px;
 }
-
 input,
 input::-webkit-input-placeholder {
     font-size: 11px;
     padding-top: 3px;
 }
-
 .main-login{
  	background-color: #fff;
     /* shadows and rounded borders */
@@ -60,17 +56,13 @@ input::-webkit-input-placeholder {
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-
 }
-
 .main-center{
  	margin-top: 30px;
  	margin: 0 auto;
  	max-width: 330px;
     padding: 40px 40px;
-
 }
-
 .login-register{
 	font-size: 11px;
 	text-align: center;
@@ -92,6 +84,7 @@ input::-webkit-input-placeholder {
 	               		<h3 class="text-center">Sign Up Account</h3>
 	               		<p class="text-center unf-black2-text fs-15">
 Already have account? Login <a href="{{ url('masuk') }}" class="greenunderline">Here</a>
+
                     </p>
 
 	               	</div>
@@ -171,8 +164,6 @@ Already have account? Login <a href="{{ url('masuk') }}" class="greenunderline">
 @section('additional_scripts')
 
 <script type="text/javascript">
-
-
 		$(document).ready(function() {
     // Fungsi dimulai...
     	$('#home').hide();
@@ -180,8 +171,6 @@ Already have account? Login <a href="{{ url('masuk') }}" class="greenunderline">
     	$('.footer').hide();
 			$('.navbar').hide();
 		});
-
-
 </script>
 
 @endsection
