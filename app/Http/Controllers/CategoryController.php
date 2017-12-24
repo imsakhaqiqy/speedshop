@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
+use App\Category;
+use App\Family;
 
 class CategoryController extends Controller
 {
@@ -25,7 +29,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        $families = Family::lists('name','id');
+        return view('category.create')
+          ->with('families',$families);
     }
 
     /**
@@ -34,15 +40,16 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        // $families = New Family;
-        // $families->name = $request->name;
-        // $families->creator = \Auth::user()->id;
-        // $families->deleted = 0;
-        // $families->save();
-        // return redirect('family')
-        //   ->with('successMessage', 'family has been added');
+        $category = New Category;
+        $category->name = $request->name;
+        $category->family_id = $request->family_id;
+        $category->creator = \Auth::user()->id;
+        $category->deleted = 0;
+        $category->save();
+        return redirect('category')
+          ->with('successMessage', 'Category has been added');
     }
 
     /**
@@ -64,9 +71,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        // $family = Family::findOrFail($id);
-        // return view('family.edit')
-        //   ->with('family', $family);
+        $category = Category::findOrFail($id);
+        $families = Family::lists('name','id');
+        return view('category.edit')
+           ->with('category', $category)
+           ->with('families', $families);
     }
 
     /**
@@ -76,15 +85,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, $id)
     {
-        // $families = Family::findOrFail($id);
-        // $families->name = $request->name;
-        // $families->creator = \Auth::user()->id;
-        // $families->deleted = 0;
-        // $families->save();
-        // return redirect('family/'.$id.'/edit')
-        //   ->with('successMessage', 'Family has been updated');
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->family_id = $request->family_id;
+        $category->creator = \Auth::user()->id;
+        $category->save();
+        return redirect('category/'.$id.'/edit')
+           ->with('successMessage', 'Category has been updated');
     }
 
     /**
@@ -93,8 +102,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+      $category = Category::findOrFail($request->category_id);
+      $category->deleted = 1;
+      $category->save();
+      return redirect('category')
+        ->with('successMessage', "Category $category->name has been deleted");
     }
 }

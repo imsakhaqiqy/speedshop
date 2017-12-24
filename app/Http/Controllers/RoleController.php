@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\RoleStoreRequest;
+use App\Http\Requests\RoleUpdateRequest;
 use App\Role;
 
 class RoleController extends Controller
@@ -35,7 +37,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleStoreRequest $request)
     {
         $role = New Role;
         $role->code = $request->code;
@@ -77,7 +79,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleUpdateRequest $request, $id)
     {
         $role = Role::findORFail($id);
         $role->code = $request->code;
@@ -94,8 +96,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $role = Role::findORFail($request->role_id);
+        $role->deleted = 1;
+        $role->save();
+        return redirect('role')
+          ->with('successMessage', "Role $role->name has been deleted");
     }
 }

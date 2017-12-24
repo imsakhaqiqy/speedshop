@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\Http\Requests\FamilieStoreRequest;
+use App\Http\Requests\FamilieUpdateRequest;
 use App\Family;
 
 class FamilyController extends Controller
@@ -36,7 +37,7 @@ class FamilyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FamilieStoreRequest $request)
     {
         $families = New Family;
         $families->name = $request->name;
@@ -78,7 +79,7 @@ class FamilyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FamilieUpdateRequest $request, $id)
     {
         $families = Family::findOrFail($id);
         $families->name = $request->name;
@@ -95,8 +96,12 @@ class FamilyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $families = Family::findOrFail($request->family_id);
+        $families->deleted = 1;
+        $families->save();
+        return redirect('family')
+          ->with('successMessage', "Family $families->name has been deleted");
     }
 }

@@ -10,6 +10,7 @@
     {!! Html::style('back/css/style.css') !!}
     <!-- jquery datatables-->
     {!! Html::style('back/css/plugins/dataTables/datatables.min.css') !!}
+    {!! Html::style('back/css/select2.min.css') !!}
 </head>
 <body>
     <div id="wrapper">

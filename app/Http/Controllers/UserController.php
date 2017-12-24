@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\User;
 use App\Role;
 
@@ -38,7 +40,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = New User;
         $user->role_id = $request->role_id;
@@ -83,7 +85,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::findORFail($id);
         $user->role_id = $request->role_id;
@@ -100,8 +102,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $user = User::findORFail($request->user_id);
+        $user->deleted = 1;
+        $user->save();
+        return redirect('user')
+          ->with('successMessage', "User $user->name has been deleted");
     }
 }

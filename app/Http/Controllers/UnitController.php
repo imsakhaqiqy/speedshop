@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UnitStoreRequest;
+use App\Http\Requests\UnitUpdateRequest;
 use App\Units;
 
 class UnitController extends Controller
@@ -18,7 +20,7 @@ class UnitController extends Controller
     {
         return view('unit.index');
 
-        
+
     }
 
     /**
@@ -37,7 +39,7 @@ class UnitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UnitStoreRequest $request)
     {
         $units = New Units;
         $units->name = $request->name;
@@ -78,7 +80,7 @@ class UnitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UnitUpdateRequest $request, $id)
     {
         $units = Units::findORFail($id);
         $units->name = $request->name;

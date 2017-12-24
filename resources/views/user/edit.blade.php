@@ -44,22 +44,37 @@
         </div>
         <div class="ibox-content">
           {!! Form::model($user,['route'=>['user.update',$user], 'class'=>'form-horizontal', 'id'=>'form-edit-user', 'method'=>'put']) !!}
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : ''}}">
               {!! Form::label('name', 'Name', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {!! Form::text('name', null, ['class'=>'form-control', 'id'=> 'name']) !!}
+                @if ($errors->has('name'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('name') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
               {!! Form::label('email', 'Email', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {!! Form::text('email', null, ['class'=>'form-control', 'id'=> 'email']) !!}
+                @if ($errors->has('email'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('role_id') ? ' has-error' : ''}}">
               {!! Form::label('role', 'Role', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {{ Form::select('role_id', $role_options, $user->roles->id, ['class'=>'form-control', 'placeholder'=>'Select Role', 'id'=>'role_id']) }}
+                @if ($errors->has('role_id'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('role_id') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
             <div class="hr-line-dashed"></div>

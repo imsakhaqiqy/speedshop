@@ -43,28 +43,48 @@
         </div>
         <div class="ibox-content">
           {!! Form::open(['route'=>'user.store', 'role'=>'form', 'class'=>'form-horizontal', 'id'=>'form-create-user']) !!}
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : ''}}">
               {!! Form::label('name', 'Name', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {!! Form::text('name',null,['class'=>'form-control', 'placeholder'=>'Name...', 'id'=>'name']) !!}
+                @if ($errors->has('name'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('name') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
               {!! Form::label('email', 'Email', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Email...', 'id'=>'email']) !!}
+                @if ($errors->has('email'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('password') ? ' has-error' : ''}}">
               {!! Form::label('password', 'Password', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {!! Form::password('password',['class'=>'form-control', 'placeholder'=>'Password...', 'id'=>'password']) !!}
+                @if ($errors->has('password'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('password') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('role_id') ? ' has-error' : ''}}">
               {!! Form::label('role', 'Role', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
                 {!! Form::select('role_id', $role_options, null, ['class'=>'form-control', 'placeholder'=>'Select role', 'id'=>'role_id']) !!}
+                @if ($errors->has('role_id'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('role_id') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>
             <div class="hr-line-dashed"></div>

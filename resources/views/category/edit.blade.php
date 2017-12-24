@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 @section('page_title')
-  Role
+  Category
 @endsection
 
 @section('page_header')
   <h1>
-    Role
-    <small>Add New Role</small>
+    Category
+    <small>Add New Category</small>
   </h1>
 @endsection
 
 @section('breadcrumb')
   <ol class="breadcrumb">
     <li><a href="{{ URL::to('home') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li><a href="{{ URL::to('role') }}"><i class="fa fa-dashboard"></i> Role</a></li>
-    <li class="active"><i></i>Create</li>
+    <li><a href="{{ URL::to('category') }}"><i class="fa fa-dashboard"></i> Family</a></li>
+    <li><a href="{{ URL::to('category/'.$category->id) }}"><i class="fa fa-dashboard"></i> {{ $category->name }}</a></li>
+    <li class="active"><i></i>Edit</li>
   </ol>
 @endsection
 
@@ -42,18 +43,7 @@
           </div>
         </div>
         <div class="ibox-content">
-          {!! Form::open(['route'=>'role.store', 'role'=>'form', 'class'=>'form-horizontal', 'id'=>'form-create-role']) !!}
-            <div class="form-group{{ $errors->has('code') ? ' has-error' : ''}}">
-              {!! Form::label('code', 'Code', ['class'=>'col-sm-2 control-label']) !!}
-              <div class="col-sm-4">
-                {!! Form::text('code',null,['class'=>'form-control', 'placeholder'=>'', 'id'=>'code']) !!}
-                @if ($errors->has('code'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('code') }}</strong>
-                  </span>
-                @endif
-              </div>
-            </div>
+          {!! Form::model($category,['route'=>['category.update',$category], 'role'=>'form', 'class'=>'form-horizontal', 'method' => 'put', 'id'=>'form-update-category']) !!}
             <div class="form-group{{ $errors->has('name') ? ' has-error' : ''}}">
               {!! Form::label('name', 'Name', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
@@ -65,13 +55,13 @@
                 @endif
               </div>
             </div>
-            <div class="form-group{{ $errors->has('description') ? ' has-error' : ''}}">
-              {!! Form::label('name', 'Description', ['class'=>'col-sm-2 control-label']) !!}
+            <div class="form-group{{ $errors->has('family_id') ? ' has-error' : ''}}">
+              {!! Form::label('family_id', 'Family', ['class'=>'col-sm-2 control-label']) !!}
               <div class="col-sm-4">
-                {!! Form::textarea('description',null,['class'=>'form-control', 'placeholder'=>'', 'id'=>'description', 'rows'=>'3']) !!}
-                @if ($errors->has('description'))
+                {!! Form::select('family_id',$families,null,['class'=>'form-control', 'placeholder'=>'Choose Family', 'id'=>'family_id']) !!}
+                @if ($errors->has('family_id'))
                   <span class="help-block">
-                    <strong>{{ $errors->first('description') }}</strong>
+                    <strong>{{ $errors->first('family_id') }}</strong>
                   </span>
                 @endif
               </div>
@@ -79,7 +69,7 @@
             <div class="hr-line-dashed"></div>
             <div class="form-group">
               <div class="col-sm-4 col-sm-offset-2">
-                <a href="{{ url('role') }}" class="btn btn-white">
+                <a href="{{ url('category') }}" class="btn btn-white">
                   <i class="fa fa-repeat"></i>&nbsp;Cancel
                 </a>
                 <button class="btn btn-primary" type="submit">
@@ -92,4 +82,14 @@
       </div>
     </div>
   </div>
+  <!-- TES COMMIT -->
+@endsection
+
+@section('additional_scripts')
+{!! Html::script('back/js/select2.min.js') !!}
+<script type="text/javascript">
+
+  $('#family_id').select2();
+
+</script>
 @endsection

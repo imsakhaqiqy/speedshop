@@ -51,6 +51,33 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Delete User -->
+<div class="modal fade" id="modal-delete-user" tabindex="-1" role="dialog" aria-labelledby="modal-delete-userLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {!! Form::open(['url'=>'deleteUser', 'method'=>'post']) !!}
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="modal-delete-userLabel">Delete user confirmation</h4>
+        </div>
+        <div class="modal-body">
+          You are going to remove user&nbsp;<b id="user-name-to-delete"></b>
+          </br>
+          <p class="text text-danger">
+            <i class="fa fa-info-circle"></i>&nbsp;This process can not be reverted
+          </p/>
+          <input type="hidden" id="user_id" name="user_id">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+  <!-- END Modal User -->
 @endsection
 
 @section('additional_scripts')
@@ -78,6 +105,14 @@
         { data: 'role', name: 'roles.name'},
         { data: 'actions', name: 'actions', orderable: false, searchable: false, className: 'text-center'}
       ],
+    });
+
+    tableUser.on('click', '.btn-delete-user', function(e){
+      var id = $(this).attr('data-id');
+      var name = $(this).attr('data-text');
+      $('#user_id').val(id);
+      $('#user-name-to-delete').text(name);
+      $('#modal-delete-user').modal('show');
     });
   </script>
 @endsection

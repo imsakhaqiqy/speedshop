@@ -26,7 +26,7 @@ class DatatablesController extends Controller
         'code',
         'name',
         'label',
-      ]);
+      ])->where('deleted',0);
       $datatables = Datatables::of($roles)
         ->addColumn('actions', function($roles){
           // $actions_html ='<a href="'.url('role/'.$roles->id.'').'" class="btn btn-info btn-xs" title="Click to view the detail">';
@@ -51,7 +51,7 @@ class DatatablesController extends Controller
       $users = User::with('roles')->select([
         \DB::raw('@rownum := @rownum + 1 AS rownum'),
           'users.*',
-      ]);
+      ])->where('deleted',0);
       $datatables = Datatables::of($users)
         ->editColumn('role', function($users){
           return $users->roles->name;
@@ -60,7 +60,7 @@ class DatatablesController extends Controller
           $actions_html ='<a href="'.url('user/'.$users->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this user">';
           $actions_html .=    '<i class="fa fa-edit"></i>';
           $actions_html .='</a>&nbsp;';
-          $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-role" data-id="'.$users->id.'" data-text="'.$users->name.'">';
+          $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-user" data-id="'.$users->id.'" data-text="'.$users->name.'">';
           $actions_html .=    '<i class="fa fa-trash"></i>';
           $actions_html .='</button>';
           return $actions_html;
@@ -133,7 +133,7 @@ class DatatablesController extends Controller
       $families = Family::with('user')->select([
         \DB::raw('@rownum := @rownum + 1 AS rownum'),
         'families.*'
-      ]);
+      ])->where('deleted',0);
       $datatables = Datatables::of($families)
       ->editColumn('creator', function($families){
         return strtoupper($families->user->name);
@@ -155,19 +155,22 @@ class DatatablesController extends Controller
 
     public function getCategories(Request $request){
       \DB::statement(\DB::raw('set @rownum=0'));
-      $categories = Category::with('user')->select([
+      $categories = Category::with('user','family')->select([
         \DB::raw('@rownum := @rownum + 1 AS rownum'),
         'categories.*'
-      ]);
+      ])->where('deleted',0);
       $datatables = Datatables::of($categories)
       ->editColumn('creator', function($categories){
         return strtoupper($categories->user->name);
       })
+      ->editColumn('family', function($categories){
+        return $categories->family->name;
+      })
       ->addColumn('actions', function($categories){
-        $actions_html ='<a href="'.url('family/'.$categories->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this family">';
+        $actions_html ='<a href="'.url('category/'.$categories->id.'/edit').'" class="btn btn-success btn-xs" title="Click to edit this family">';
         $actions_html .=    '<i class="fa fa-edit"></i>';
         $actions_html .='</a>&nbsp;';
-        $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-family" data-id="'.$categories->id.'" data-text="'.$categories->name.'">';
+        $actions_html .='<button type="button" class="btn btn-danger btn-xs btn-delete-category" data-id="'.$categories->id.'" data-text="'.$categories->name.'">';
         $actions_html .=    '<i class="fa fa-trash"></i>';
         $actions_html .='</button>';
         return $actions_html;

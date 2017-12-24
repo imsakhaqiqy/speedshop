@@ -159,6 +159,7 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         Tzsk\Sms\Provider\SmsServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -209,6 +210,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Sms' => Tzsk\Sms\Facade\Sms::class,
         'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

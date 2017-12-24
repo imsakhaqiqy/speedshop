@@ -21,6 +21,7 @@ Route::get('sms',function(){
 use App\Order;
 use App\Customer;
 Route::resource('category', 'CategoryController');
+Route::post('deleteCategory','CategoryController@destroy');
 Route::get('send_test_email',function(){
     $order = Order::findOrFail(18);
     $data_customer = Customer::findOrFail($order->customer_id);
@@ -43,8 +44,10 @@ Route::resource('masuk', 'S_LoginController');
 Route::post('berhasil','S_LoginController@berhasil');
 
 Route::resource('product', 'ProductController');
+Route::post('callCategory', 'ProductController@callCategory');
 
 Route::resource('family', 'FamilyController');
+Route::post('deleteFamily','FamilyController@destroy');
 
 Route::resource('unit', 'UnitController');
 Route::post('deleteUnit','UnitController@destroy');
@@ -54,8 +57,10 @@ Route::resource('menu', 'MenuController');
 //Route::resource('speedshop', 'FrontController');
 
 Route::resource('user', 'UserController');
+Route::post('deleteUser','UserController@destroy');
 
 Route::resource('role', 'RoleController');
+Route::post('deleteRole','RoleController@destroy');
 
 Route::resource('daftar', 'SDaftarController');
 

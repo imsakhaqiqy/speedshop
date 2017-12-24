@@ -52,6 +52,33 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Delete role -->
+<div class="modal fade" id="modal-delete-family" tabindex="-1" role="dialog" aria-labelledby="modal-delete-familyLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {!! Form::open(['url'=>'deleteFamily', 'method'=>'post']) !!}
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="modal-delete-familyLabel">Delete family confirmation</h4>
+        </div>
+        <div class="modal-body">
+          You are going to remove family&nbsp;<b id="family-name-to-delete"></b>
+          </br>
+          <p class="text text-danger">
+            <i class="fa fa-info-circle"></i>&nbsp;This process can not be reverted
+          </p/>
+          <input type="hidden" id="family_id" name="family_id">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+<!-- END Modal role -->
 @endsection
 
 @section('additional_scripts')
@@ -80,6 +107,14 @@
         { data: 'updated_at', name: 'updated_at'},
         { data: 'actions', name: 'actions', orderable: false, searchable: false, className: 'text-center'}
       ],
+    });
+
+    tableFamily.on('click', '.btn-delete-family', function(e){
+      var id = $(this).attr('data-id');
+      var name = $(this).attr('data-text');
+      $('#family_id').val(id);
+      $('#family-name-to-delete').text(name);
+      $('#modal-delete-family').modal('show');
     });
   </script>
 @endsection
