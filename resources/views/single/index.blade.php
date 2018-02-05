@@ -10,14 +10,14 @@
        <div class="col-md-5 grid-single">
            <div class="flexslider">
              <ul class="slides">
-             <li data-thumb="front/images/{{$products[0]->image}}">
-               <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="img/products/thumb_{{$products[0]->image}}">
+               <div class="thumb-image"> <img src="img/products/thumb_{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
-             <li data-thumb="front/images/{{$products[0]->image}}">
-                <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="img/products/thumb_{{$products[0]->image}}">
+                <div class="thumb-image"> <img src="img/products/thumb_{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
-             <li data-thumb="front/images/{{$products[0]->image}}">
-                <div class="thumb-image"> <img src="front/images/{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+             <li data-thumb="img/products/thumb_{{$products[0]->image}}">
+                <div class="thumb-image"> <img src="img/products/thumb_{{$products[0]->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
              </li>
              </ul>
            </div>

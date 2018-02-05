@@ -35,7 +35,7 @@ h2{
       <br>
       <div class="col-md-3">
         <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[0]->name }}">
-        {!! Html::image('front/images/'.$new_arrival[0]->image, '', ['class'=>'img-responsive']) !!}
+        {!! Html::image('img/products/thumb_'.$new_arrival[0]->image, '', ['class'=>'img-responsive']) !!}
         </a>
          <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[0]->name }}">
          <h3 class="b-tittle">{{ $new_arrival[0]->name }}</h3>
@@ -44,7 +44,7 @@ h2{
       </div>
       <div class="col-md-3">
         <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[1]->name }}">
-          {!! Html::image('front/images/'.$new_arrival[1]->image, '', ['class'=>'img-responsive']) !!}
+          {!! Html::image('img/products/thumb_'.$new_arrival[1]->image, '', ['class'=>'img-responsive']) !!}
         </a>
           <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[1]->name }}">
           <h3 class="b-tittle">{{ $new_arrival[1]->name }}</h3>
@@ -53,7 +53,7 @@ h2{
       </div>
       <div class="col-md-3">
           <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[2]->name }}">
-          {!! Html::image('front/images/'.$new_arrival[2]->image, '', ['class'=>'img-responsive']) !!}
+          {!! Html::image('img/products/thumb_'.$new_arrival[2]->image, '', ['class'=>'img-responsive']) !!}
           </a>
           <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[2]->name }}">
           <h3 class="b-tittle">{{ $new_arrival[2]->name }}</h3>
@@ -62,7 +62,7 @@ h2{
         </div>
       <div class="col-md-3">
           <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[3]->name }}">
-          {!! Html::image('front/images/'.$new_arrival[3]->image, '', ['class'=>'img-responsive']) !!}
+          {!! Html::image('img/products/thumb_'.$new_arrival[3]->image, '', ['class'=>'img-responsive']) !!}
           </a>
             <a class="collection" href="{{ url('single?p=') }}{{ $new_arrival[3]->name }}">
             <h3 class="b-tittle">{{ $new_arrival[3]->name }}</h3>
@@ -81,7 +81,7 @@ h2{
       <br>
         <div class="col-md-3">
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
-            {!! Html::image('front/images/'.$hotlist[0]->image, '', ['class'=>'img-responsive']) !!}
+            {!! Html::image('img/products/thumb_'.$hotlist[0]->image, '', ['class'=>'img-responsive']) !!}
           </a>
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[0]->name }}">
             <h3 class="b-tittle">{{ $hotlist[0]->name }}</h3>
@@ -91,7 +91,7 @@ h2{
         </div>
         <div class="col-md-3">
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
-            {!! Html::image('front/images/'.$hotlist[1]->image, '', ['class'=>'img-responsive']) !!}
+            {!! Html::image('img/products/thumb_'.$hotlist[1]->image, '', ['class'=>'img-responsive']) !!}
           </a>
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[1]->name }}">
             <h3 class="b-tittle">{{ $hotlist[1]->name }}</h3>
@@ -101,7 +101,7 @@ h2{
         </div>
         <div class="col-md-3">
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
-            {!! Html::image('front/images/'.$hotlist[2]->image, '', ['class'=>'img-responsive']) !!}
+            {!! Html::image('img/products/thumb_'.$hotlist[2]->image, '', ['class'=>'img-responsive']) !!}
           </a>
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[2]->name }}">
             <h3 class="b-tittle">{{ $hotlist[2]->name }}</h3>
@@ -111,7 +111,7 @@ h2{
         </div>
         <div class="col-md-3">
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
-            {!! Html::image('front/images/'.$hotlist[3]->image, '', ['class'=>'img-responsive']) !!}
+            {!! Html::image('img/products/thumb_'.$hotlist[3]->image, '', ['class'=>'img-responsive']) !!}
           </a>
           <a class="collection" href="{{ url('single?p=') }}{{ $hotlist[3]->name }}">
             <h3 class="b-tittle">{{ $hotlist[3]->name }}</h3>
